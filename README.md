@@ -18,5 +18,5 @@ Do not import new packages unless absolutely necessary! Try to keep things simpl
 
 #### Commits
 
-- Use a new branch for new features and merge with main branch when done.
+- Use a new branch with name '[SCRUM-90] - <FeatureName>' for new features ..and merge with main branch when done.
 - Commits should include [SCRUM-12] the ticket number as the first text that integrates with Jira.
