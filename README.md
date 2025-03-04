@@ -14,7 +14,9 @@ The database is hosted in https://mongodb.com/cloud/atlas service so requests ma
 
 ### _Contributions_
 
-Do not import new packages unless absolutely necessary! Try to keep things simple :) 
+Do not import new packages unless absolutely necessary! Try to keep things simple :)
+
+mongodb+srv://GeneralAdmin:<db_password>@cluster0.emcba.mongodb.net/
 
 #### Commits
 
