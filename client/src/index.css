@@ -8,6 +8,18 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: #DC5F2E;
+  overflow: hidden;
+  background-image: radial-gradient(
+    circle at 10% 10%,
+    rgba(255, 255, 255, 0.05) 10%,
+    transparent 10%
+  ),
+  radial-gradient(
+    circle at 90% 90%,
+    rgba(255, 255, 255, 0.05) 10%,
+    transparent 10%
+  );
+  background-size: 40px 40px;
 }
 
 h1 {
@@ -15,14 +27,16 @@ h1 {
   text-align: center;
   margin-top: 20px;
   color: #F4F4DC;
+  flex-shrink: 0;
 }
 
 .tabs-container {
   display: flex;
-  width: 80%;
-  height: calc(100vh - 120px);
-  margin: 30px auto;
+  width: 90%; 
+  height: calc(100vh - 160px);
+  margin: 30px auto 20px;
   gap: 20px;
+  overflow: hidden;
 }
 
 .tab {
@@ -58,7 +72,6 @@ h1 {
   color: #333;
 }
 
-/* Placement Opportunity Cards */
 .placement-opportunity {
   background: #F3F1DE;
   padding: 15px;
@@ -66,17 +79,39 @@ h1 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
   transition: transform 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 20px; 
 }
 
-.placement-opportunity:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.placement-info {
+  flex: 1;
 }
 
 .placement-title {
   font-size: 1.2rem;
   font-weight: bold;
   color: #DC5F2E;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-tag {
+  background: #F4F4DC; 
+  color: #DC5F2E; 
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border: 2px solid #DC5F2E; 
+}
+
+.company-icon {
+  font-size: 3rem;
+  color: #DC5F2E;
+  flex-shrink: 0;
 }
 
 .placement-description {
@@ -100,8 +135,41 @@ h1 {
   font-size: 0.9rem;
 }
 
+.placement-status {
+  margin-left: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.status.submitted {
+  background-color: #4CAF50;
+}
+
+.status.waiting {
+  background-color: #FFC107;
+}
+
+.status.interview {
+  background-color: #2196F3;
+}
+
+.status.rejected {
+  background-color: #F44336;
+}
+
+.status.offer {
+  background-color: #9C27B0;
+}
+
 .filter-container {
-  position: relative; /* This ensures the dropdown appears relative to this button */
+  position: relative;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -133,11 +201,12 @@ h1 {
 
 .filter-dropdown {
   position: absolute;
-  top: 110%; /* Moves dropdown just below the button */
+  top: 110%;
   left: 0;
   width: 250px;
-  max-height: 250px; /* Restricts height to avoid too much scrolling */
-  overflow-y: auto; /* Enables scrolling when there are many categories */
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: white;
   border: 1px solid #ccc;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -155,6 +224,7 @@ h1 {
   color: #DC5F2E;
   display: block;
   margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
 .filter-option {
@@ -162,6 +232,7 @@ h1 {
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.2s ease;
+  font-size: 0.85rem;
 }
 
 .filter-option:hover {
@@ -172,4 +243,86 @@ h1 {
 .filter-option.selected {
   background: #DC5F2E;
   color: white;
+}
+
+.apply-button {
+  width: calc(100% - 20px);
+  padding: 6px;
+  margin: 10px 0 0 0;
+  background-color: #DC5F2E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.apply-button:hover {
+  background-color: #c04e1f;
+}
+
+.header {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 0 20px;
+  position: relative; 
+}
+
+.menu-container {
+  position: absolute;
+  right: 250px; 
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001; 
+}
+
+.menu-icon {
+  font-size: 2.5rem; 
+  cursor: pointer;
+  color: #F4F4DC;
+  transition: transform 0.2s ease; 
+}
+
+.menu-icon:hover {
+  transform: scale(1.1); 
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #F3F1DE; 
+  border: 1px solid #DC5F2E; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1002; 
+  padding: 10px;
+  width: 150px;
+}
+
+.menu-item {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #DC5F2E; 
+  font-weight: bold; 
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+.menu-item:hover {
+  background: #DC5F2E; 
+  color: #F3F1DE; 
+  border-radius: 5px;
+}
+
+.menu-item .menu-icon {
+  font-size: 1rem; 
+  color: inherit; 
 }
