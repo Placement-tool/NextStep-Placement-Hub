@@ -95,6 +95,58 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap; 
+  margin-bottom: 8px; 
+}
+
+.deadline-tag, .start-date-tag {
+  background: #F4F4DC;
+  color: #DC5F2E;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 3px 5px rgba(220, 95, 46, 0.3);
+  margin-right: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  top: 0;
+}
+
+.deadline-tag {
+  background: #DC5F2E; 
+  color: #F4F4DC; 
+  border: 3px solid #DC5F2E;
+  border-radius: 8px; 
+  animation: pulse 2s infinite;
+}
+
+.start-date-tag {
+  border: 3px solid #DC5F2E;
+  background-image: linear-gradient(45deg, #F4F4DC, #F4F4DC 70%, rgba(220, 95, 46, 0.2) 70%, rgba(220, 95, 46, 0.2));
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 95, 46, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(220, 95, 46, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 95, 46, 0);
+  }
+}
+
+.deadline-tag:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 8px rgba(220, 95, 46, 0.5);
+}
+
+.start-date-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 8px rgba(220, 95, 46, 0.4);
 }
 
 .company-tag {
