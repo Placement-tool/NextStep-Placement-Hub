@@ -21,7 +21,7 @@ const filterOptions = {
   Length: ["6 months", "9 months", "10 months", "12 months"]
 };
 
-const PlacementOpportunity = ({ title, description, tags, status, company, icon, deadline, startDate }) => (
+const PlacementOpportunity = ({ title, description, tags, status, company, icon, deadline, startDate, showAddButton, showRemoveButton, onAdd, onRemove }) => (
   <div className="placement-opportunity">
     <div className="company-icon">{icon}</div>
     <div className="placement-info">
@@ -36,11 +36,23 @@ const PlacementOpportunity = ({ title, description, tags, status, company, icon,
         {tags.map((tag, index) => <span key={index} className="tag">{tag}</span>)}
       </div>
     </div>
-    {status && (
-      <div className="placement-status">
-        <span className={`status ${status.toLowerCase()}`}>{status}</span>
-      </div>
-    )}
+    <div className="placement-actions">
+      {status && (
+        <div className="placement-status">
+          <span className={`status ${status.toLowerCase()}`}>{status}</span>
+        </div>
+      )}
+      {showAddButton && (
+        <button className="add-button" onClick={onAdd}>
+          + Add
+        </button>
+      )}
+      {showRemoveButton && (
+        <button className="remove-button" onClick={onRemove}>
+          - Remove
+        </button>
+      )}
+    </div>
   </div>
 );
 
@@ -50,10 +62,90 @@ const App = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedFiltersLeft, setSelectedFiltersLeft] = useState({});
   const [selectedFiltersRight, setSelectedFiltersRight] = useState({});
+  
+  const [allOpportunities, setAllOpportunities] = useState(opportunities);
   const [filteredOpportunities, setFilteredOpportunities] = useState(opportunities);
+  
+  const [allApplications, setAllApplications] = useState(applications);
   const [filteredApplications, setFilteredApplications] = useState(applications);
-
+  
+  const handleAddApplication = (opportunity) => {
+    // Create a copy of the opportunity as an application with "Submitted" status
+    const newApplication = {
+      ...opportunity,
+      status: "Submitted"
+    };
+    
+    // Add the new application to the beginning of the applications array (LIFO)
+    const updatedApplications = [newApplication, ...allApplications];
+    setAllApplications(updatedApplications);
+    
+    // Update filtered applications accordingly
+    const activeFilters = Object.values(selectedFiltersRight).filter(Boolean);
+    if (activeFilters.length === 0) {
+      setFilteredApplications(updatedApplications);
+    } else {
+      const filtered = updatedApplications.filter(application =>
+        activeFilters.every(filter => application.tags.includes(filter))
+      );
+      setFilteredApplications(filtered);
+    }
+    
+    // Remove the opportunity from the opportunities lists
+    const updatedOpportunities = allOpportunities.filter(
+      opp => opp.title !== opportunity.title || opp.company !== opportunity.company
+    );
+    setAllOpportunities(updatedOpportunities);
+    
+    // Update filtered opportunities
+    const activeLeftFilters = Object.values(selectedFiltersLeft).filter(Boolean);
+    if (activeLeftFilters.length === 0) {
+      setFilteredOpportunities(updatedOpportunities);
+    } else {
+      const filtered = updatedOpportunities.filter(opp =>
+        activeLeftFilters.every(filter => opp.tags.includes(filter))
+      );
+      setFilteredOpportunities(filtered);
+    }
+  };
   const menuRef = useRef(null);
+
+  const handleRemoveApplication = (application) => {
+    // Create a copy of the application as an opportunity (remove status)
+    const { status, ...opportunityData } = application;
+    
+    // Add the opportunity to the beginning of opportunities array (LIFO)
+    const updatedOpportunities = [opportunityData, ...allOpportunities];
+    setAllOpportunities(updatedOpportunities);
+    
+    // Update filtered opportunities accordingly
+    const activeLeftFilters = Object.values(selectedFiltersLeft).filter(Boolean);
+    if (activeLeftFilters.length === 0) {
+      setFilteredOpportunities(updatedOpportunities);
+    } else {
+      const filtered = updatedOpportunities.filter(opportunity =>
+        activeLeftFilters.every(filter => opportunity.tags.includes(filter))
+      );
+      setFilteredOpportunities(filtered);
+    }
+    
+    // Remove the application from applications lists
+    const updatedApplications = allApplications.filter(
+      app => app.title !== application.title || app.company !== application.company
+    );
+    setAllApplications(updatedApplications);
+    
+    // Update filtered applications
+    const activeRightFilters = Object.values(selectedFiltersRight).filter(Boolean);
+    if (activeRightFilters.length === 0) {
+      setFilteredApplications(updatedApplications);
+    } else {
+      const filtered = updatedApplications.filter(app =>
+        activeRightFilters.every(filter => app.tags.includes(filter))
+      );
+      setFilteredApplications(filtered);
+    }
+  };
 
   const toggleFilterDropdownLeft = (e) => {
     e.stopPropagation();
@@ -178,7 +270,13 @@ const App = () => {
             </div>
           </div>
           <div className="tab-content">
-            {filteredOpportunities.map((opportunity, index) => <PlacementOpportunity key={index} {...opportunity} />)}
+          {filteredOpportunities.map((opportunity, index) => (
+              <PlacementOpportunity 
+                key={index} 
+                {...opportunity} 
+                showAddButton={true}
+                showRemoveButton={false}
+                onAdd={() => handleAddApplication(opportunity)} />))}
           </div>
         </div>
         <div className="tab">
@@ -205,7 +303,13 @@ const App = () => {
             </div>
           </div>
           <div className="tab-content">
-            {filteredApplications.map((application, index) => <PlacementOpportunity key={index} {...application} />)}
+          {filteredApplications.map((application, index) => (
+              <PlacementOpportunity 
+                key={index} 
+                {...application} 
+                showAddButton={false}
+                showRemoveButton={true}
+                onRemove={() => handleRemoveApplication(application)} />))}
           </div>
         </div>
       </div>

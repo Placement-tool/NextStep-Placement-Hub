@@ -149,6 +149,31 @@ h1 {
   box-shadow: 0 5px 8px rgba(220, 95, 46, 0.4);
 }
 
+.add-button {
+  background-color: #DC5F2E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-left: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.add-button:hover {
+  background-color: #c04e1f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:active {
+  transform: translateY(1px);
+}
+
 .company-tag {
   background: #F4F4DC; 
   color: #DC5F2E; 
@@ -192,6 +217,36 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.9rem;
+}
+
+.placement-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remove-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.remove-button:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.remove-button:active {
+  transform: translateY(1px);
 }
 
 .status {
