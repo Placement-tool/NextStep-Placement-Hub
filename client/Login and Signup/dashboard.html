@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Welcome to Your Dashboard</h1>
+            <div class="user-section">
+                <p id="user-info">Loading user information...</p>
+                <button id="logout-btn">Log Out</button>
+            </div>
+        </header>
+        
+        <section class="dashboard-content">
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h2>Profile</h2>
+                    <p>View and manage your profile details</p>
+                    <button class="card-btn" id="profile-btn">Go to Profile</button>
+                </div>
+                <div class="card">
+                    <h2>Settings</h2>
+                    <p>Configure your application settings</p>
+                    <button class="card-btn" id="settings-btn">Go to Settings</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module">
+        import { auth } from './firebase-config.js';
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+        console.log("Dashboard script loaded");
+
+        onAuthStateChanged(auth, (user) => {
+            console.log("Auth state changed", user ? user.email : "no user");
+            
+            if (user) {
+                document.getElementById('user-info').textContent = `Hello, ${user.displayName || 'User'}! You are logged in with ${user.email}.`;
+                initializeDashboard(user);
+            } else {
+                console.log("No user is signed in, redirecting to login");
+                window.location.href = 'login.html';
+            }
+        });
+
+        function initializeDashboard(user) {
+            console.log("Initializing dashboard for user:", user.uid);
+        
+            const profileBtn = document.getElementById('profile-btn');
+            if (profileBtn) {
+                profileBtn.addEventListener('click', () => {
+                    window.location.href = 'profile.html';
+                });
+            }
+            
+            const settingsBtn = document.getElementById('settings-btn');
+            if (settingsBtn) {
+                settingsBtn.addEventListener('click', () => {
+                    window.location.href = 'settings.html';
+                });
+            }
+        }
+
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                console.log("Logout button clicked");
+                signOut(auth)
+                    .then(() => {
+                        console.log("Sign-out successful, redirecting to login");
+                        window.location.href = 'login.html';
+                    })
+                    .catch((error) => {
+                        console.error('Logout Error:', error);
+                        alert('Error logging out. Please try again.');
+                    });
+            });
+        } else {
+            console.error("Logout button not found!");
+        }
+    </script>
+</body>
+</html>
