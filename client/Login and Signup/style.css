@@ -21,25 +21,32 @@ html{
     text-align: center;
 }
 
-body{
+body {
     min-height: 100vh;
     background-image: url(background.jpg);
     background-size: cover;
     background-position: right;
-    overflow: hidden;
+    overflow-y: auto; /* Allow scrolling for the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    padding: 20px 0; /* Add some padding to avoid cutting off content */
 }
 
-.wrapper{
+.wrapper {
     box-sizing: border-box;
     background-color: var(--base-color);
-    height: 100vh;
     width: max(40%, 600px);
-    padding: 10px;
+    padding: 20px; /* Adjust padding for better spacing */
     border-radius: 0 20px 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align content to the top */
+    margin: 0 auto; /* Center the wrapper horizontally */
+    overflow-y: auto; /* Allow scrolling within the wrapper if needed */
+    height: auto; /* Remove fixed height */
+    min-height: auto; /* Allow the wrapper to grow with content */
 }
 
 h1{
@@ -64,18 +71,20 @@ form > div{
     justify-content: center;
 }
 
-form label{
+form label {
     flex-shrink: 0;
     height: 50px;
-    width:50px;
-    background-color: var(--accent-color);
+    width: auto; /* Adjust width to fit content */
+    background-color: transparent; /* Remove background color */
     border-radius: 10px 0 0 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align text to the start */
     align-items: center;
+    padding-left: 10px; /* Add some padding for better spacing */
+    color: var(--text-color); /* Ensure text color is consistent */
 }
 
-form input{
+form input {
     box-sizing: border-box;
     flex-grow: 1;
     min-width: 0;
@@ -84,7 +93,7 @@ form input{
     font: inherit;
     border-radius: 0 10px 10px 0;
     border: 2px solid var(--accent-color);
-
+    background-color: white; /* Ensure input background is white */
     transition: 150ms ease;
 }
 
