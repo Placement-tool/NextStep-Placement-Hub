@@ -5,7 +5,8 @@ import {
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
   updateProfile,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  signOut 
 } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -149,3 +150,13 @@ function handleLogin(email, password, error_message) {
       if (error_message) error_message.innerText = errorMessage;
     });
 }
+
+// Add the logout function and export it
+export const logout = async () => {
+  try {
+    await signOut(auth);
+    console.log('User signed out');
+  } catch (error) {
+    console.error('Logout Error:', error);
+  }
+};

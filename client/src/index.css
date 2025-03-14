@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #DC5F2E;
+  background-color: #335C67; /* Blue background color */
   overflow: hidden;
   background-image: radial-gradient(
     circle at 10% 10%,
@@ -19,17 +19,18 @@ body {
     rgba(255, 255, 255, 0.05) 10%,
     transparent 10%
   );
-  background-size: 40px 40px;
+  background-size: 40px 40px; /* Grid pattern size */
 }
 
 h1 {
   font-size: 3rem;
   text-align: center;
   margin-top: 20px;
-  color: #F4F4DC;
+  color: #DC5F2E; /* Changed to orange to match the theme */
   flex-shrink: 0;
 }
 
+/* Keep the rest of your existing styles for the main content (orange theme) */
 .tabs-container {
   display: flex;
   width: 90%; 
@@ -44,7 +45,7 @@ h1 {
   overflow-y: auto;
   padding: 20px;
   box-sizing: border-box;
-  background: #F3F1DE;
+  background: #F3F1DE; /* Cream background for tabs */
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
@@ -59,7 +60,7 @@ h1 {
 .tab-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #DC5F2E;
+  color: #DC5F2E; /* Orange color for titles */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,7 +74,7 @@ h1 {
 }
 
 .placement-opportunity {
-  background: #F3F1DE;
+  background: #F3F1DE; /* Cream background for placement opportunities */
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -91,7 +92,7 @@ h1 {
 .placement-title {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #DC5F2E;
+  color: #DC5F2E; /* Orange color for placement titles */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -100,14 +101,14 @@ h1 {
 }
 
 .deadline-tag, .start-date-tag {
-  background: #F4F4DC;
-  color: #DC5F2E;
+  background: #F4F4DC; /* Cream background for tags */
+  color: #DC5F2E; /* Orange color for tag text */
   padding: 6px 12px;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: 800;
   white-space: nowrap;
-  box-shadow: 0 3px 5px rgba(220, 95, 46, 0.3);
+  box-shadow: 0 3px 5px rgba(220, 95, 46, 0.3); /* Orange shadow */
   margin-right: 8px;
   transition: all 0.2s ease;
   position: relative;
@@ -115,42 +116,42 @@ h1 {
 }
 
 .deadline-tag {
-  background: #DC5F2E; 
-  color: #F4F4DC; 
-  border: 3px solid #DC5F2E;
+  background: #DC5F2E; /* Orange background for deadline tags */
+  color: #F4F4DC; /* Cream color for text */
+  border: 3px solid #DC5F2E; /* Orange border */
   border-radius: 8px; 
   animation: pulse 2s infinite;
 }
 
 .start-date-tag {
-  border: 3px solid #DC5F2E;
-  background-image: linear-gradient(45deg, #F4F4DC, #F4F4DC 70%, rgba(220, 95, 46, 0.2) 70%, rgba(220, 95, 46, 0.2));
+  border: 3px solid #DC5F2E; /* Orange border */
+  background-image: linear-gradient(45deg, #F4F4DC, #F4F4DC 70%, rgba(220, 95, 46, 0.2) 70%, rgba(220, 95, 46, 0.2)); /* Gradient with orange */
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(220, 95, 46, 0.7);
+    box-shadow: 0 0 0 0 rgba(220, 95, 46, 0.7); /* Orange shadow */
   }
   70% {
-    box-shadow: 0 0 0 6px rgba(220, 95, 46, 0);
+    box-shadow: 0 0 0 6px rgba(220, 95, 46, 0); /* Orange shadow */
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(220, 95, 46, 0);
+    box-shadow: 0 0 0 0 rgba(220, 95, 46, 0); /* Orange shadow */
   }
 }
 
 .deadline-tag:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 5px 8px rgba(220, 95, 46, 0.5);
+  box-shadow: 0 5px 8px rgba(220, 95, 46, 0.5); /* Orange shadow */
 }
 
 .start-date-tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 8px rgba(220, 95, 46, 0.4);
+  box-shadow: 0 5px 8px rgba(220, 95, 46, 0.4); /* Orange shadow */
 }
 
 .add-button {
-  background-color: #DC5F2E;
+  background-color: #DC5F2E; /* Orange background for buttons */
   color: white;
   border: none;
   border-radius: 5px;
@@ -165,7 +166,7 @@ h1 {
 }
 
 .add-button:hover {
-  background-color: #c04e1f;
+  background-color: #c04e1f; /* Darker orange on hover */
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -175,19 +176,19 @@ h1 {
 }
 
 .company-tag {
-  background: #F4F4DC; 
-  color: #DC5F2E; 
+  background: #F4F4DC; /* Cream background for company tags */
+  color: #DC5F2E; /* Orange color for text */
   padding: 4px 8px;
   border-radius: 5px;
   font-size: 0.9rem;
   font-weight: bold;
   white-space: nowrap;
-  border: 2px solid #DC5F2E; 
+  border: 2px solid #DC5F2E; /* Orange border */
 }
 
 .company-icon {
   font-size: 3rem;
-  color: #DC5F2E;
+  color: #DC5F2E; /* Orange color for icons */
   flex-shrink: 0;
 }
 
@@ -205,7 +206,7 @@ h1 {
 }
 
 .tag {
-  background: #DC5F2E;
+  background: #DC5F2E; /* Orange background for tags */
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
@@ -298,12 +299,12 @@ h1 {
 .filter-text {
   font-size: 1rem;
   font-weight: bold;
-  color: #DC5F2E;
+  color: #DC5F2E; /* Orange color for filter text */
 }
 
 .filter-icon {
   font-size: 1.2rem;
-  color: #DC5F2E;
+  color: #DC5F2E; /* Orange color for filter icons */
 }
 
 .filter-dropdown {
@@ -328,7 +329,7 @@ h1 {
 
 .filter-category-title {
   font-weight: bold;
-  color: #DC5F2E;
+  color: #DC5F2E; /* Orange color for filter category titles */
   display: block;
   margin-bottom: 5px;
   font-size: 0.9rem;
@@ -343,12 +344,12 @@ h1 {
 }
 
 .filter-option:hover {
-  background: #DC5F2E;
+  background: #DC5F2E; /* Orange background on hover */
   color: white;
 }
 
 .filter-option.selected {
-  background: #DC5F2E;
+  background: #DC5F2E; /* Orange background for selected options */
   color: white;
 }
 
@@ -356,7 +357,7 @@ h1 {
   width: calc(100% - 20px);
   padding: 6px;
   margin: 10px 0 0 0;
-  background-color: #DC5F2E;
+  background-color: #DC5F2E; /* Orange background for apply button */
   color: white;
   border: none;
   border-radius: 5px;
@@ -368,7 +369,7 @@ h1 {
 }
 
 .apply-button:hover {
-  background-color: #c04e1f;
+  background-color: #c04e1f; /* Darker orange on hover */
 }
 
 .header {
@@ -390,7 +391,7 @@ h1 {
 .menu-icon {
   font-size: 2.5rem; 
   cursor: pointer;
-  color: #F4F4DC;
+  color: #F4F4DC; /* Cream color for menu icons */
   transition: transform 0.2s ease; 
 }
 
@@ -402,8 +403,8 @@ h1 {
   position: absolute;
   top: 100%;
   right: 0;
-  background: #F3F1DE; 
-  border: 1px solid #DC5F2E; 
+  background: #F3F1DE; /* Cream background for dropdown */
+  border: 1px solid #DC5F2E; /* Orange border */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   z-index: 1002; 
@@ -415,7 +416,7 @@ h1 {
   padding: 8px;
   cursor: pointer;
   font-size: 0.9rem;
-  color: #DC5F2E; 
+  color: #DC5F2E; /* Orange color for menu items */
   font-weight: bold; 
   transition: background 0.2s ease;
   display: flex;
@@ -424,8 +425,8 @@ h1 {
 }
 
 .menu-item:hover {
-  background: #DC5F2E; 
-  color: #F3F1DE; 
+  background: #DC5F2E; /* Orange background on hover */
+  color: #F3F1DE; /* Cream color for text on hover */
   border-radius: 5px;
 }
 

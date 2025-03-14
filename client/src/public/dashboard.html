@@ -5,14 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body.dashboard-page {
+            min-height: 100vh;
+            background-image: url(background.jpg);
+            background-size: cover;
+            background-position: right;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            overflow-y: auto; 
+            padding: 20px; 
+        }
+
+        .dashboard-wrapper {
+            box-sizing: border-box;
+            background-color: var(--base-color);
+            width: max(40%, 600px);
+            padding: 20px; 
+            border-radius: 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+            margin: 0 auto; 
+            overflow-y: auto; 
+            height: auto; 
+            min-height: auto; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        }
+    </style>
 </head>
-<body>
-    <div class="wrapper">
+<body class="dashboard-page"> <!-- Add a class to target this page specifically -->
+    <div class="dashboard-wrapper"> <!-- Use a unique class for the wrapper -->
         <header>
             <h1>Welcome to Your Dashboard</h1>
             <div class="user-section">
                 <p id="user-info">Loading user information...</p>
                 <button id="logout-btn">Log Out</button>
+                <!-- Add a button to go to the React app (main page) -->
+                <button onclick="window.location.href='http://localhost:3001/'" style="margin-left: 10px;">Go to Main Page</button>
             </div>
         </header>
         

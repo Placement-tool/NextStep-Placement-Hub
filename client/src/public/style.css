@@ -23,30 +23,30 @@ html{
 
 body {
     min-height: 100vh;
-    background-image: url(background.jpg);
+    background-image: url('../assets/background.jpg');
     background-size: cover;
     background-position: right;
-    overflow-y: auto; /* Allow scrolling for the entire page */
+    overflow-y: auto; 
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align content to the top */
-    padding: 20px 0; /* Add some padding to avoid cutting off content */
+    align-items: flex-start; 
+    padding: 20px 0; 
 }
 
 .wrapper {
     box-sizing: border-box;
     background-color: var(--base-color);
     width: max(40%, 600px);
-    padding: 20px; /* Adjust padding for better spacing */
+    padding: 20px; 
     border-radius: 0 20px 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content to the top */
-    margin: 0 auto; /* Center the wrapper horizontally */
-    overflow-y: auto; /* Allow scrolling within the wrapper if needed */
-    height: auto; /* Remove fixed height */
-    min-height: auto; /* Allow the wrapper to grow with content */
+    justify-content: flex-start; 
+    margin: 0 auto; 
+    overflow-y: auto; 
+    height: auto; 
+    min-height: auto; 
 }
 
 h1{
@@ -74,14 +74,14 @@ form > div{
 form label {
     flex-shrink: 0;
     height: 50px;
-    width: auto; /* Adjust width to fit content */
-    background-color: transparent; /* Remove background color */
+    width: auto; 
+    background-color: transparent; 
     border-radius: 10px 0 0 10px;
     display: flex;
-    justify-content: flex-start; /* Align text to the start */
+    justify-content: flex-start; 
     align-items: center;
-    padding-left: 10px; /* Add some padding for better spacing */
-    color: var(--text-color); /* Ensure text color is consistent */
+    padding-left: 10px; 
+    color: var(--text-color); 
 }
 
 form input {
@@ -93,7 +93,7 @@ form input {
     font: inherit;
     border-radius: 0 10px 10px 0;
     border: 2px solid var(--accent-color);
-    background-color: white; /* Ensure input background is white */
+    background-color: white;
     transition: 150ms ease;
 }
 

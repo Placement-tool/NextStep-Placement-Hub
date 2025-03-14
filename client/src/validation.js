@@ -62,7 +62,7 @@ function isValidEmail(email) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
+    //const form = document.getElementById('form');
     const error_message = document.getElementById('error-message');
     
     // only add input event listeners 
