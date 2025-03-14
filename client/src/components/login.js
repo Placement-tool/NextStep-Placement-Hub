@@ -3,6 +3,7 @@ import { auth } from '../firebase-config';
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js';
 import { useNavigate } from 'react-router-dom';
 import '../public/style.css'; 
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Login = () => {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/main'); // Redirect to the main page after successful login
+            navigate('/main'); 
         } catch (error) {
             console.error('Login Error:', error);
             document.getElementById('error-message').textContent = error.message;
@@ -45,7 +46,7 @@ const Login = () => {
                 </div>
                 <button type="submit">Log in</button>
             </form>
-            <p>New here? <a href="/signup">Create an Account</a></p>
+            <p>New here? <Link to="/signup">Create An Account</Link></p>
             <p><button id="forgot-password">Forgot Password?</button></p>
         </div>
     );

@@ -151,7 +151,6 @@ function handleLogin(email, password, error_message) {
     });
 }
 
-// Add the logout function and export it
 export const logout = async () => {
   try {
     await signOut(auth);

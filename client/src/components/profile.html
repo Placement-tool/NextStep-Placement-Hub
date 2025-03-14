@@ -325,13 +325,11 @@
             document.getElementById('display-name').value = user.displayName || '';
         }
 
-        // Toggle edit mode
         editProfileBtn.addEventListener('click', function() {
             profileView.style.display = 'none';
             profileEdit.style.display = 'block';
         });
 
-        // Cancel edit
         cancelEditBtn.addEventListener('click', function() {
             profileView.style.display = 'block';
             profileEdit.style.display = 'none';
@@ -373,7 +371,6 @@
             
             const user = auth.currentUser;
             if (user) {
-                // Re-authenticate user before changing password
                 const credential = EmailAuthProvider.credential(
                     user.email, 
                     currentPassword

@@ -65,8 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //const form = document.getElementById('form');
     const error_message = document.getElementById('error-message');
     
-    // only add input event listeners 
-    // don't add submit handler here because it's in auth.js
     const inputs = [
         document.getElementById('name-input'),
         document.getElementById('email-input'),

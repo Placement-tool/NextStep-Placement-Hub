@@ -203,8 +203,8 @@ const MainPage = () => {
   };
 
   const handleLogout = async () => {
-    await logout(); // Use the logout function
-    navigate('/'); // Redirect to the login page after logout
+    await logout(); 
+    navigate('/'); 
   };
 
   useEffect(() => {
