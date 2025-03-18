@@ -1,4 +1,4 @@
-import { auth } from './firebase-config.js';
+import { auth } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js';
 import { getSignupFormErrors, getLoginFormErrors } from './validation.js';
 import { 
   onAuthStateChanged, 
@@ -8,6 +8,63 @@ import {
   sendPasswordResetEmail,
   signOut 
 } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+// Remove the DOMContentLoaded event listener and hard redirects
+export const setupAuthListeners = (navigate) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("User is signed in:", user.email);
+      navigate('/main'); // Use navigate for SPA navigation
+    } else {
+      console.log("No user is signed in");
+      navigate('/'); // Redirect to login if not authenticated
+    }
+  });
+};
+
+export const handleSignup = async (email, password, name, confirmPassword, navigate) => {
+  const errors = getSignupFormErrors(name, email, password, confirmPassword);
+  
+  if (errors.length > 0) {
+    return errors.join(". ");
+  }
+  
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, { displayName: name });
+    navigate('/main'); // Use navigate for SPA navigation
+    return null; // No errors
+  } catch (error) {
+    console.error("Signup error:", error);
+    return error.message;
+  }
+};
+
+export const handleLogin = async (email, password, navigate) => {
+  const errors = getLoginFormErrors(email, password);
+  
+  if (errors.length > 0) {
+    return errors.join(". ");
+  }
+  
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    navigate('/main'); // Use navigate for SPA navigation
+    return null; // No errors
+  } catch (error) {
+    console.error("Login error:", error);
+    return error.message;
+  }
+};
+
+export const logout = async () => {
+  try {
+    await signOut(auth);
+    console.log('User signed out');
+  } catch (error) {
+    console.error('Logout Error:', error);
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Auth.js loaded and running");
@@ -75,87 +132,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-function handleSignup(email, password, error_message) {
-  const name = document.getElementById('name-input')?.value;
-  const confirmPassword = document.getElementById('confirm-password-input')?.value;
-  
-  if (!name || !confirmPassword) {
-    console.error("Name or confirm password input not found!");
-    if (error_message) error_message.innerText = "Form inputs not found. Please refresh the page.";
-    return;
-  }
-  
-  const errors = getSignupFormErrors(name, email, password, confirmPassword);
-  
-  if (errors.length > 0) {
-    console.log("Signup validation errors:", errors);
-    if (error_message) error_message.innerText = errors.join(". ");
-    return;
-  }
-  
-  console.log("Creating new user account...");
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log("User created successfully:", userCredential.user.uid);
-      return updateProfile(userCredential.user, {
-        displayName: name
-      });
-    })
-    .then(() => {
-      console.log("Profile updated successfully, redirecting to dashboard");
-      window.location.href = 'dashboard.html';
-    })
-    .catch((error) => {
-      console.error("Signup error:", error);
-      const errorCode = error.code;
-      let errorMessage = error.message;
-      
-      if (errorCode === 'auth/email-already-in-use') {
-        errorMessage = 'This email is already registered. Please use a different email or try logging in.';
-      } else if (errorCode === 'auth/weak-password') {
-        errorMessage = 'Please choose a stronger password.';
-      }
-      
-      if (error_message) error_message.innerText = errorMessage;
-    });
-}
-
-function handleLogin(email, password, error_message) {
-  const errors = getLoginFormErrors(email, password);
-  
-  if (errors.length > 0) {
-    console.log("Login validation errors:", errors);
-    if (error_message) error_message.innerText = errors.join(". ");
-    return;
-  }
-  
-  console.log("Attempting to sign in...");
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log("Login successful:", userCredential.user.email);
-      window.location.href = 'dashboard.html';
-    })
-    .catch((error) => {
-      console.error("Login error:", error);
-      const errorCode = error.code;
-      let errorMessage = 'Invalid email or password.';
-      
-      if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
-        errorMessage = 'Invalid email or password.';
-      } else if (errorCode === 'auth/too-many-requests') {
-        errorMessage = 'Too many unsuccessful login attempts. Please try again later.';
-      }
-      
-      if (error_message) error_message.innerText = errorMessage;
-    });
-}
-
-export const logout = async () => {
-  try {
-    await signOut(auth);
-    console.log('User signed out');
-  } catch (error) {
-    console.error('Logout Error:', error);
-  }
-};

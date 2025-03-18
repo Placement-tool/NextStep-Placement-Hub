@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaFilter, FaBars, FaUser, FaCog, FaSignOutAlt, FaBuilding, FaAmazon, FaIndustry } from "react-icons/fa";
-//import { auth } from './firebase-config.js';
-//import { signOut } from './auth.js';
 import { logout } from './auth'; 
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
+import { auth } from './firebase-config';
+import { onAuthStateChanged } from "firebase/auth";
 
 const opportunities = [
   { title: "Investment Banking Analyst", description: "Join a top-tier investment bank and gain hands-on experience in financial analysis, market research, and client management...", tags: ["London", "£40,000", "Finance", "12 months"], company: "JPMorgan", icon: <FaBuilding />, deadline: "Apply by: 31 Oct 2023", startDate: "Start: Jan 2024" },
@@ -66,15 +65,23 @@ const MainPage = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedFiltersLeft, setSelectedFiltersLeft] = useState({});
   const [selectedFiltersRight, setSelectedFiltersRight] = useState({});
-  
   const [allOpportunities, setAllOpportunities] = useState(opportunities);
   const [filteredOpportunities, setFilteredOpportunities] = useState(opportunities);
-  
   const [allApplications, setAllApplications] = useState(applications);
   const [filteredApplications, setFilteredApplications] = useState(applications);
-
   const menuRef = useRef(null); 
   const navigate = useNavigate();
+
+  // Check authentication state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate('/'); // Redirect to login if not authenticated
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup subscription
+  }, [navigate]);
   
   const handleAddApplication = (opportunity) => {
     const newApplication = {
@@ -230,10 +237,10 @@ const MainPage = () => {
           </div>
           {showMenu && (
             <div className="menu-dropdown" onClick={(e) => e.stopPropagation()}>
-              <div className="menu-item">
+              <Link to="/profile" className="menu-item">
                 <FaUser className="menu-icon" />
                 <span>Profile</span>
-              </div>
+              </Link>
               <div className="menu-item">
                 <FaCog className="menu-icon" />
                 <span>Settings</span>

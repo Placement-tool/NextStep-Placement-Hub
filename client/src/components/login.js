@@ -1,12 +1,12 @@
-import React from 'react';
-import { auth } from '../firebase-config';
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth'; 
+import { auth } from '../firebase-config'; 
 import '../public/style.css'; 
-import { Link } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -15,17 +15,17 @@ const Login = () => {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/main'); 
+            navigate('/main');
         } catch (error) {
             console.error('Login Error:', error);
-            document.getElementById('error-message').textContent = error.message;
+            setErrorMessage(error.message);
         }
     };
 
     return (
         <div className="wrapper">
             <h1>Log in</h1>
-            <p id="error-message"></p>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <form id="form" onSubmit={handleLogin}>
                 <div>
                     <label htmlFor="email-input">
@@ -47,7 +47,7 @@ const Login = () => {
                 <button type="submit">Log in</button>
             </form>
             <p>New here? <Link to="/signup">Create An Account</Link></p>
-            <p><button id="forgot-password">Forgot Password?</button></p>
+            <p><button type="button" onClick={() => alert("Password reset functionality")}>Forgot Password?</button></p>
         </div>
     );
 };
