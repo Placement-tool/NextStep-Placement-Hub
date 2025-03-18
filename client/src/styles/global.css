@@ -163,3 +163,43 @@ form div.incorrect{
 #error-message{
     color:#e44444;
 }
+
+.text-button {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    font-weight: 600;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+    color: var(--text-color);
+}
+
+.success-message {
+    color: var(--success-color);
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    font-weight: 600;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(228, 68, 68, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    font-weight: 600;
+}
+
+#error-message {
+    color: var(--error-color);
+}

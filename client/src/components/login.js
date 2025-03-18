@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
 import { auth } from '../firebase-config'; 
+import { handlePasswordReset } from '../utils/auth';
 import '../styles/global.css'; 
 
 const Login = () => {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
+    const [resetEmailSent, setResetEmailSent] = useState(false);
+    const [resetError, setResetError] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -22,10 +25,42 @@ const Login = () => {
         }
     };
 
+    const handleForgotPassword = async (e) => {
+        e.preventDefault();
+        setResetError('');
+        setResetEmailSent(false);
+        
+        let email = document.getElementById('email-input')?.value;
+        
+        // If no email is entered, prompt the user
+        if (!email) {
+            email = window.prompt('Please enter your email address to reset your password:');
+            if (!email) return; 
+        }
+        
+        const result = await handlePasswordReset(email);
+        
+        if (result.success) {
+            setResetEmailSent(true);
+        } else {
+            setResetError(result.message);
+        }
+    };
+
     return (
         <div className="wrapper">
             <h1>Log in</h1>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {resetEmailSent && (
+                <p className="success-message">
+                    Password reset email sent! Please check your inbox.
+                </p>
+            )}
+            {resetError && (
+                <p className="error-message">
+                    {resetError}
+                </p>
+            )}
             <form id="form" onSubmit={handleLogin}>
                 <div>
                     <label htmlFor="email-input">
@@ -47,7 +82,7 @@ const Login = () => {
                 <button type="submit">Log in</button>
             </form>
             <p>New here? <Link to="/signup">Create An Account</Link></p>
-            <p><button type="button" onClick={() => alert("Password reset functionality")}>Forgot Password?</button></p>
+            <p><button type="button" className="text-button" onClick={handleForgotPassword}>Forgot Password?</button></p>
         </div>
     );
 };
