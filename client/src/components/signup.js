@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js';  
+import { handleSignup } from '../utils/auth';  // Import handleSignup from your auth.js
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -25,21 +25,17 @@ const Signup = () => {
     e.preventDefault();
     setErrorMessage('');
     
-    if (formData.password !== formData.confirmPassword) {
-      setErrorMessage("Passwords don't match");
-      return;
-    }
+    // Use the handleSignup function from auth.js
+    const error = await handleSignup(
+      formData.email,
+      formData.password,
+      formData.name,
+      formData.confirmPassword,
+      navigate
+    );
     
-    try {
-      await createUserWithEmailAndPassword(
-        formData.email, 
-        formData.password,
-        formData.name
-      );
-      
-      navigate('/login');
-    } catch (error) {
-      setErrorMessage(error.message);
+    if (error) {
+      setErrorMessage(error);
     }
   };
 
