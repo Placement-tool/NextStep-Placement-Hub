@@ -9,7 +9,7 @@ import {
   EmailAuthProvider, 
   reauthenticateWithCredential 
 } from "firebase/auth";
-import '../public/style.css';
+import '../styles/global.css';
 
 function Profile() {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaFilter, FaBars, FaUser, FaCog, FaSignOutAlt, FaBuilding, FaAmazon, FaIndustry } from "react-icons/fa";
-import { logout } from './auth'; 
+import { logout } from '../utils/auth'; 
 import { useNavigate, Link } from 'react-router-dom';
-import { auth } from './firebase-config';
+import { auth } from '../firebase-config';
 import { onAuthStateChanged } from "firebase/auth";
 
 const opportunities = [
