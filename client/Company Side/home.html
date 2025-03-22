@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+
+        <h2>Create a Job Listing</h2>
+
+        <form id="jobListingForm">
+            <label for="jobTitle">Job Title</label><br>
+            <input type="text" id="jobTitle" name="jobTitle" required><br><br>
+
+            <label for="companyName">Company Name</label><br>
+            <input type="text" id="companyName" name="companyName" required><br><br>
+
+            <label for="jobDescription">Job Description</label><br>
+            <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea><br><br>
+
+            <label for="location">Job Location</label><br>
+            <input type="text" id="location" name="location" required><br><br>
+
+            <label for="salary">Salary Range ($)</label><br>
+            <input type="text" id="salary" name="salary" placeholder="e.g. 50,000 - 70,000"><br><br>
+
+            <label for="deadline">Application Deadline:</label><br>
+            <input type="date" id="deadline" name="deadline" required><br><br>
+
+            <label for="startDate">Job Start Date:</label><br>
+            <input type="date" id="startDate" name="startDate" required><br><br>
+
+            <button type="submit">Submit Job Listing</button>
+        </form>
+
+    </div>
+
+    <div class="main-content">
+
+        Paste the applications code here
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
