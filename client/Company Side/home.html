@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Listing Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
 <div class="container">
     <div class="sidebar">
-
         <h2>Create a Job Listing</h2>
-
         <form id="jobListingForm">
             <label for="jobTitle">Job Title</label><br>
             <input type="text" id="jobTitle" name="jobTitle" required><br><br>
@@ -37,17 +35,118 @@
 
             <button type="submit">Submit Job Listing</button>
         </form>
-
     </div>
 
     <div class="main-content">
+        <div class="placement-opportunity">
+            <div class="company-icon">🏢</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Software Engineer
+                    <span class="company-tag">Google</span>
+                    <span class="deadline-tag">Deadline: 31/12/2025</span>
+                </div>
+                <div class="placement-description">
+                    Join Google's engineering team to build scalable and innovative solutions...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 15/01/2026</span>
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Remote</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status open">Open</span>
+                </div>
+                <button class="add-button">+ Add</button>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
 
-        Paste the applications code here
+        <div class="placement-opportunity">
+            <div class="company-icon">🏭</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Data Analyst
+                    <span class="company-tag">Bloomberg</span>
+                    <span class="deadline-tag">Deadline: 15/11/2025</span>
+                </div>
+                <div class="placement-description">
+                    Work with Bloomberg's data team to analyze financial markets and trends...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 01/02/2026</span>
+                    <span class="tag">Part-time</span>
+                    <span class="tag">On-site</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status open">Open</span>
+                </div>
+                <button class="add-button">+ Add</button>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+
+        <div class="placement-opportunity">
+            <div class="company-icon">🏛️</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Marketing Manager
+                    <span class="company-tag">KPMG</span>
+                    <span class="deadline-tag">Deadline: 30/10/2025</span>
+                </div>
+                <div class="placement-description">
+                    Lead KPMG's marketing team to create impactful campaigns for global clients...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 01/01/2026</span>
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Hybrid</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status closed">Closed</span>
+                </div>
+                <button class="add-button">+ Add</button>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+
+        <div class="placement-opportunity">
+            <div class="company-icon">💻</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Frontend Developer
+                    <span class="company-tag">Meta</span>
+                    <span class="deadline-tag">Deadline: 20/11/2025</span>
+                </div>
+                <div class="placement-description">
+                    Build responsive and user-friendly web applications for Meta's platforms...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 10/01/2026</span>
+                    <span class="tag">Contract</span>
+                    <span class="tag">Remote</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status open">Open</span>
+                </div>
+                <button class="add-button">+ Add</button>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+
+        <!-- Add more listings here -->
 
     </div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>

@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root{
+:root {
     --accent-color: #E76F51;
     --base-color: #FFF3B0;
     --text-color: #335C67;
     --input-color: #F4A261;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-html{
+html {
     font-family: Atkinson Hyperlegible Mono, Poppins;
     font-size: 12pt;
     color: var(--text-color);
     text-align: center;
 }
 
-body{
+body {
     min-height: 100vh;
     background-image: url(background.jpg);
     background-size: cover;
@@ -27,7 +27,7 @@ body{
     overflow: auto;
 }
 
-.wrapper{
+.wrapper {
     box-sizing: border-box;
     background-color: var(--base-color);
     height: 100vh;
@@ -40,15 +40,15 @@ body{
     justify-content: center;
 }
 
-h1{
+h1 {
     font-size: 3rem;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-form{
+form {
     width: min(400px, 100%);
-    margin-top:20px;
+    margin-top: 20px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -56,13 +56,13 @@ form{
     gap: 10px;
 }
 
-form > div{
+form > div {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-form label{
+form label {
     flex-shrink: 0;
     background-color: var(--accent-color);
     border-radius: 10px 0 0 10px;
@@ -74,7 +74,7 @@ form label{
     font-size: 1.2em;
 }
 
-form input{
+form input {
     box-sizing: border-box;
     flex-grow: 1;
     min-width: 0;
@@ -83,28 +83,27 @@ form input{
     font: inherit;
     border-radius: 0 10px 10px 0;
     border: 2px solid var(--accent-color);
-
     transition: 150ms ease;
 }
 
-form input:hover{
+form input:hover {
     border-color: var(--text-color);
 }
 
-form input:focus{
+form input:focus {
     outline: none;
     border-color: var(--text-color);
 }
 
-div:has(input:focus) > label{
+div:has(input:focus) > label {
     background-color: var(--text-color);
 }
 
-form input::placeholder{
+form input::placeholder {
     color: var(--text-color);
 }
 
-form button{
+form button {
     margin-top: 10px;
     border: none;
     border-radius: 1000px;
@@ -118,41 +117,42 @@ form button{
     transition: 150ms ease;
 }
 
-form button:hover{
+form button:hover {
     background-color: var(--text-color);
 }
 
-form button:focus{
+form button:focus {
     outline: none;
     background-color: var(--text-color);
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--accent-color);
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-@media(max-width: 1000px){
-    .wrapper{
+@media (max-width: 1000px) {
+    .wrapper {
         width: min(600px, 100%);
         border-radius: 0;
     }
 }
 
-form div.incorrect{
+form div.incorrect {
     background-color: #e44444;
     border-radius: 10px 10px 10px 10px;
 }
 
-#error-message{
-    color:#e44444;
+#error-message {
+    color: #e44444;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -161,16 +161,109 @@ input, textarea {
 
 .container {
     display: flex;
+    width: 100%;
 }
 
 .sidebar {
     width: 30%;
-    background-color: #f4f4f4;
     padding: 20px;
+    background-color: var(--base-color);
 }
 
 .main-content {
-    flex: 1; /* Takes the remaining space */
-    background-color: #ddd;
+    width: 70%;
     padding: 20px;
+    background-color: #fff;
+}
+
+.placement-opportunity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.company-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.placement-info {
+    flex-grow: 1;
+}
+
+.placement-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.company-tag,
+.deadline-tag {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.placement-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.placement-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag,
+.start-date-tag {
+    padding: 5px 10px;
+    background-color: #e1e1e1;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #333;
+}
+
+.placement-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-button,
+.remove-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.remove-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.placement-status .status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+}
+
+.status.open {
+    background-color: #28a745;
+}
+
+.status.closed {
+    background-color: #dc3545;
 }
