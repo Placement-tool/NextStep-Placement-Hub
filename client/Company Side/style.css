@@ -208,7 +208,6 @@ select.error {
     background-color: #dc3545;
 }
 
-/* Animation for new job listings */
 @keyframes highlightNew {
     0% { background-color: rgba(231, 111, 81, 0.2); }
     100% { background-color: #fff; }
@@ -216,4 +215,60 @@ select.error {
 
 .placement-opportunity:first-child {
     animation: highlightNew 2s ease;
+}
+
+#undoButton {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#undoButton:hover {
+    background-color: var(--text-color);
+}
+
+/* Toast notification styles */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.undo-button {
+    background-color: white;
+    color: var(--accent-color);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.undo-button:hover {
+    background-color: #f0f0f0;
 }

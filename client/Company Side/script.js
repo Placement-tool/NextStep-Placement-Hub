@@ -1,9 +1,63 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('jobListingForm');
-    
+    const jobListingsContainer = document.querySelector('.main-content');
+    let lastRemovedJob = null; 
+    let toastTimeout = null; 
+
+    function showToast(message, undoCallback) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+
+        const undoButton = document.createElement('button');
+        undoButton.textContent = 'Undo';
+        undoButton.className = 'undo-button';
+        undoButton.addEventListener('click', () => {
+            undoCallback();
+            toast.remove();
+            clearTimeout(toastTimeout); // Clear the timeout if "Undo" is clicked
+        });
+
+        toast.appendChild(undoButton);
+        document.body.appendChild(toast);
+
+        toastTimeout = setTimeout(() => {
+            toast.remove();
+        }, 5000);
+    }
+
+    function restoreLastRemovedJob() {
+        if (lastRemovedJob) {
+            jobListingsContainer.insertAdjacentHTML('afterbegin', lastRemovedJob);
+            lastRemovedJob = null; 
+            attachEventListenersToNewJob(); 
+        }
+    }
+
+    function attachEventListenersToNewJob() {
+        const newListing = jobListingsContainer.firstElementChild;
+        const addButton = newListing.querySelector('.add-button');
+        const removeButton = newListing.querySelector('.remove-button');
+
+        addButton.addEventListener('click', function() {
+            const jobTitle = newListing.querySelector('.placement-title').textContent.trim().split('\n')[0].trim();
+            alert(`Job "${jobTitle}" has been added to your saved listings.`);
+        });
+
+        removeButton.addEventListener('click', function() {
+            const jobToRemove = this.closest('.placement-opportunity');
+            lastRemovedJob = jobToRemove.outerHTML; 
+            jobToRemove.remove();
+
+            showToast('Job removed', () => {
+                restoreLastRemovedJob();
+            });
+        });
+    }
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const jobTitle = document.getElementById('jobTitle').value.trim();
         const companyName = document.getElementById('companyName').value.trim();
         const jobDescription = document.getElementById('jobDescription').value.trim();
@@ -13,49 +67,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const startDate = document.getElementById('startDate').value;
         const jobType = document.getElementById('jobType').value;
         const workMode = document.getElementById('workMode').value;
-        
+
         // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-        
+
+        // Validation
         const errorMessages = [];
-        
-        if (!jobTitle) {
-            document.getElementById('jobTitleError').textContent = "Job title is required";
-            errorMessages.push("Job title is required");
-        }
-        if (!companyName) {
-            document.getElementById('companyNameError').textContent = "Company name is required";
-            errorMessages.push("Company name is required");
-        }
-        if (!jobDescription) {
-            document.getElementById('jobDescriptionError').textContent = "Job description is required";
-            errorMessages.push("Job description is required");
-        }
-        if (!location) {
-            document.getElementById('locationError').textContent = "Location is required";
-            errorMessages.push("Location is required");
-        }
-        if (!deadline) {
-            document.getElementById('deadlineError').textContent = "Application deadline is required";
-            errorMessages.push("Application deadline is required");
-        }
-        if (!startDate) {
-            document.getElementById('startDateError').textContent = "Start date is required";
-            errorMessages.push("Start date is required");
-        }
-        if (!jobType) {
-            document.getElementById('jobTypeError').textContent = "Job type is required";
-            errorMessages.push("Job type is required");
-        }
-        if (!workMode) {
-            document.getElementById('workModeError').textContent = "Work mode is required";
-            errorMessages.push("Work mode is required");
-        }
-        
+        if (!jobTitle) errorMessages.push("Job title is required");
+        if (!companyName) errorMessages.push("Company name is required");
+        if (!jobDescription) errorMessages.push("Job description is required");
+        if (!location) errorMessages.push("Location is required");
+        if (!deadline) errorMessages.push("Application deadline is required");
+        if (!startDate) errorMessages.push("Start date is required");
+        if (!jobType) errorMessages.push("Job type is required");
+        if (!workMode) errorMessages.push("Work mode is required");
+
         if (errorMessages.length > 0) {
+            errorMessages.forEach(msg => alert(msg));
             return;
         }
-        
+
         const formatDate = (dateStr) => {
             const date = new Date(dateStr);
             const day = String(date.getDate()).padStart(2, '0');
@@ -63,23 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const year = date.getFullYear();
             return `${day}/${month}/${year}`;
         };
-        
-        let jobIcon = '🏢';
-        if (jobTitle.toLowerCase().includes('software') || jobTitle.toLowerCase().includes('developer')) {
-            jobIcon = '💻';
-        } else if (jobTitle.toLowerCase().includes('data')) {
-            jobIcon = '📊';
-        } else if (jobTitle.toLowerCase().includes('marketing')) {
-            jobIcon = '📣';
-        } else if (jobTitle.toLowerCase().includes('engineer')) {
-            jobIcon = '⚙️';
-        } else if (jobTitle.toLowerCase().includes('manager')) {
-            jobIcon = '👔';
-        }
-        
+
         const jobHTML = `
             <div class="placement-opportunity">
-                <div class="company-icon">${jobIcon}</div>
+                <div class="company-icon">🏢</div>
                 <div class="placement-info">
                     <div class="placement-title">
                         ${jobTitle}
@@ -104,36 +122,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
-        const jobListingsContainer = document.querySelector('.main-content');
+
         jobListingsContainer.insertAdjacentHTML('afterbegin', jobHTML);
-        
-        const newListing = jobListingsContainer.firstElementChild;
-        const addButton = newListing.querySelector('.add-button');
-        const removeButton = newListing.querySelector('.remove-button');
-        
-        addButton.addEventListener('click', function() {
-            alert(`Job "${jobTitle}" has been added to your saved listings.`);
-        });
-        
-        removeButton.addEventListener('click', function() {
-            this.closest('.placement-opportunity').remove();
-        });
-        
+        attachEventListenersToNewJob();
         form.reset();
-        newListing.scrollIntoView({ behavior: 'smooth' });
+        jobListingsContainer.firstElementChild.scrollIntoView({ behavior: 'smooth' });
     });
-    
-    document.querySelectorAll('.add-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const jobTitle = this.closest('.placement-opportunity').querySelector('.placement-title').textContent.trim().split('\n')[0].trim();
-            alert(`Job "${jobTitle}" has been added to your saved listings.`);
-        });
-    });
-    
+
     document.querySelectorAll('.remove-button').forEach(button => {
         button.addEventListener('click', function() {
-            this.closest('.placement-opportunity').remove();
+            const jobToRemove = this.closest('.placement-opportunity');
+            lastRemovedJob = jobToRemove.outerHTML;
+            jobToRemove.remove();
+
+            showToast('Job removed', () => {
+                restoreLastRemovedJob();
+            });
         });
     });
 });
