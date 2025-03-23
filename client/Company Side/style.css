@@ -10,13 +10,13 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-    font-family: Atkinson Hyperlegible Mono, Poppins;
+    font-family: 'Atkinson Hyperlegible Mono', sans-serif;
     font-size: 12pt;
     color: var(--text-color);
-    text-align: center;
 }
 
 body {
@@ -27,141 +27,10 @@ body {
     overflow: auto;
 }
 
-.wrapper {
-    box-sizing: border-box;
-    background-color: var(--base-color);
-    height: 100vh;
-    width: max(40%, 600px);
-    padding: 10px;
-    border-radius: 0 20px 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-form {
-    width: min(400px, 100%);
-    margin-top: 20px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-form > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-form label {
-    flex-shrink: 0;
-    background-color: var(--accent-color);
-    border-radius: 10px 0 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    min-width: 55px;
-    font-size: 1.2em;
-}
-
-form input {
-    box-sizing: border-box;
-    flex-grow: 1;
-    min-width: 0;
-    height: 50px;
-    padding: 1em;
-    font: inherit;
-    border-radius: 0 10px 10px 0;
-    border: 2px solid var(--accent-color);
-    transition: 150ms ease;
-}
-
-form input:hover {
-    border-color: var(--text-color);
-}
-
-form input:focus {
-    outline: none;
-    border-color: var(--text-color);
-}
-
-div:has(input:focus) > label {
-    background-color: var(--text-color);
-}
-
-form input::placeholder {
-    color: var(--text-color);
-}
-
-form button {
-    margin-top: 10px;
-    border: none;
-    border-radius: 1000px;
-    padding: .85em 4em;
-    background-color: var(--accent-color);
-    color: var(--base-color);
-    font: inherit;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 150ms ease;
-}
-
-form button:hover {
-    background-color: var(--text-color);
-}
-
-form button:focus {
-    outline: none;
-    background-color: var(--text-color);
-}
-
-a {
-    text-decoration: none;
-    color: var(--accent-color);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 1000px) {
-    .wrapper {
-        width: min(600px, 100%);
-        border-radius: 0;
-    }
-}
-
-form div.incorrect {
-    background-color: #e44444;
-    border-radius: 10px 10px 10px 10px;
-}
-
-#error-message {
-    color: #e44444;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
 .container {
     display: flex;
     width: 100%;
+    min-height: 100vh;
 }
 
 .sidebar {
@@ -174,6 +43,77 @@ textarea {
     width: 70%;
     padding: 20px;
     background-color: #fff;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    font: inherit;
+    margin-bottom: 10px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--text-color);
+}
+
+form button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--text-color);
+}
+
+.error-message {
+    color: #e44444;
+    font-size: 12px;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+input.error,
+textarea.error,
+select.error {
+    border: 2px solid #e44444;
 }
 
 .placement-opportunity {
@@ -266,4 +206,14 @@ textarea {
 
 .status.closed {
     background-color: #dc3545;
+}
+
+/* Animation for new job listings */
+@keyframes highlightNew {
+    0% { background-color: rgba(231, 111, 81, 0.2); }
+    100% { background-color: #fff; }
+}
+
+.placement-opportunity:first-child {
+    animation: highlightNew 2s ease;
 }

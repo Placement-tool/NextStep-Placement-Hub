@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import StudentLogin from './components/StudentLogin';
+import StudentSignup from './components/StudentSignup';
 import Profile from './components/Profile';
 import MainPage from './pages/MainPage';
+import ApplicationTracker from './pages/ApplicationTracker';
 import { auth } from './firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -36,8 +39,15 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Company routes */}
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        
+        {/* Student routes */}
+        <Route path="/student-login" element={<StudentLogin />} />
+        <Route path="/student-signup" element={<StudentSignup />} />
+        
+        {/* Protected routes */}
         <Route path="/main" element={
           <ProtectedRoute>
             <MainPage />
@@ -46,6 +56,11 @@ const App = () => {
         <Route path="/profile" element={
           <ProtectedRoute>
             <Profile />
+          </ProtectedRoute>
+        } />
+        <Route path="/applications" element={
+          <ProtectedRoute>
+            <ApplicationTracker />
           </ProtectedRoute>
         } />
         <Route path="*" element={<Navigate to="/" />} />

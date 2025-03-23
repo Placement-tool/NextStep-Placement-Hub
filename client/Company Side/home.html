@@ -12,32 +12,77 @@
     <div class="sidebar">
         <h2>Create a Job Listing</h2>
         <form id="jobListingForm">
-            <label for="jobTitle">Job Title</label><br>
-            <input type="text" id="jobTitle" name="jobTitle" required><br><br>
+            <div class="form-group">
+                <label for="jobTitle">Job Title</label><br>
+                <input type="text" id="jobTitle" name="jobTitle" required><br>
+                <span class="error-message" id="jobTitleError"></span><br>
+            </div>
 
-            <label for="companyName">Company Name</label><br>
-            <input type="text" id="companyName" name="companyName" required><br><br>
+            <div class="form-group">
+                <label for="companyName">Company Name</label><br>
+                <input type="text" id="companyName" name="companyName" required><br>
+                <span class="error-message" id="companyNameError"></span><br>
+            </div>
 
-            <label for="jobDescription">Job Description</label><br>
-            <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea><br><br>
+            <div class="form-group">
+                <label for="jobDescription">Job Description</label><br>
+                <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea><br>
+                <span class="error-message" id="jobDescriptionError"></span><br>
+            </div>
 
-            <label for="location">Job Location</label><br>
-            <input type="text" id="location" name="location" required><br><br>
+            <div class="form-group">
+                <label for="location">Job Location</label><br>
+                <input type="text" id="location" name="location" required><br>
+                <span class="error-message" id="locationError"></span><br>
+            </div>
 
-            <label for="salary">Salary Range ($)</label><br>
-            <input type="text" id="salary" name="salary" placeholder="e.g. 50,000 - 70,000"><br><br>
+            <div class="form-group">
+                <label for="salary">Salary Range ($)</label><br>
+                <input type="text" id="salary" name="salary" placeholder="e.g. 50,000 - 70,000"><br>
+                <span class="error-message" id="salaryError"></span><br>
+            </div>
 
-            <label for="deadline">Application Deadline:</label><br>
-            <input type="date" id="deadline" name="deadline" required><br><br>
+            <div class="form-group">
+                <label for="deadline">Application Deadline:</label><br>
+                <input type="date" id="deadline" name="deadline" required><br>
+                <span class="error-message" id="deadlineError"></span><br>
+            </div>
 
-            <label for="startDate">Job Start Date:</label><br>
-            <input type="date" id="startDate" name="startDate" required><br><br>
+            <div class="form-group">
+                <label for="startDate">Job Start Date:</label><br>
+                <input type="date" id="startDate" name="startDate" required><br>
+                <span class="error-message" id="startDateError"></span><br>
+            </div>
 
-            <button type="submit">Submit Job Listing</button>
+            <div class="form-group">
+                <label for="jobType">Job Type:</label><br>
+                <select id="jobType" name="jobType" required>
+                    <option value="">Select job type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                </select><br>
+                <span class="error-message" id="jobTypeError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="workMode">Work Mode:</label><br>
+                <select id="workMode" name="workMode" required>
+                    <option value="">Select work mode</option>
+                    <option value="Remote">Remote</option>
+                    <option value="On-site">On-site</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select><br>
+                <span class="error-message" id="workModeError"></span><br>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Job Listing</button>
         </form>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" id="jobListingsContainer">
+        <!-- Sample job listings (can be removed once JS is implemented) -->
         <div class="placement-opportunity">
             <div class="company-icon">🏢</div>
             <div class="placement-info">
@@ -141,9 +186,6 @@
                 <button class="remove-button">- Remove</button>
             </div>
         </div>
-
-        <!-- Add more listings here -->
-
     </div>
 </div>
 
