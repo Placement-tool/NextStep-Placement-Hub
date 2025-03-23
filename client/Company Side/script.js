@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const jobListingsContainer = document.querySelector('.main-content');
     let lastRemovedJob = null; 
     let toastTimeout = null; 
-
+    
     function showToast(message, undoCallback) {
         const toast = document.createElement('div');
         toast.className = 'toast';
@@ -36,13 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function attachEventListenersToNewJob() {
         const newListing = jobListingsContainer.firstElementChild;
-        const addButton = newListing.querySelector('.add-button');
         const removeButton = newListing.querySelector('.remove-button');
-
-        addButton.addEventListener('click', function() {
-            const jobTitle = newListing.querySelector('.placement-title').textContent.trim().split('\n')[0].trim();
-            alert(`Job "${jobTitle}" has been added to your saved listings.`);
-        });
 
         removeButton.addEventListener('click', function() {
             const jobToRemove = this.closest('.placement-opportunity');
@@ -68,10 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const jobType = document.getElementById('jobType').value;
         const workMode = document.getElementById('workMode').value;
 
-        // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
 
-        // Validation
         const errorMessages = [];
         if (!jobTitle) errorMessages.push("Job title is required");
         if (!companyName) errorMessages.push("Company name is required");
@@ -117,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="placement-status">
                         <span class="status open">Open</span>
                     </div>
-                    <button class="add-button">+ Add</button>
                     <button class="remove-button">- Remove</button>
                 </div>
             </div>
@@ -132,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.remove-button').forEach(button => {
         button.addEventListener('click', function() {
             const jobToRemove = this.closest('.placement-opportunity');
-            lastRemovedJob = jobToRemove.outerHTML;
+            lastRemovedJob = jobToRemove.outerHTML; 
             jobToRemove.remove();
 
             showToast('Job removed', () => {

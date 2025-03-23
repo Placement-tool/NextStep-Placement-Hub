@@ -175,17 +175,11 @@ select.error {
     gap: 10px;
 }
 
-.add-button,
 .remove-button {
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.add-button {
-    background-color: #28a745;
-    color: white;
 }
 
 .remove-button {
@@ -233,7 +227,6 @@ select.error {
     background-color: var(--text-color);
 }
 
-/* Toast notification styles */
 .toast {
     position: fixed;
     bottom: 20px;
