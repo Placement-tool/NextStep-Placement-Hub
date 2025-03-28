@@ -7,6 +7,7 @@ import StudentSignup from './components/StudentSignup';
 import Profile from './components/Profile';
 import MainPage from './pages/MainPage';
 import ApplicationTracker from './pages/ApplicationTracker';
+import OpportunityDetails from './pages/OpportunityDetails'; 
 import { auth } from './firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -63,6 +64,10 @@ const App = () => {
             <ApplicationTracker />
           </ProtectedRoute>
         } />
+        <Route 
+          path="/opportunity/:id" 
+          element={<OpportunityDetails />} 
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

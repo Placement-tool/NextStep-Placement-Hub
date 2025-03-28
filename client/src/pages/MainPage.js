@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaFilter, FaBars, FaUser, FaCog, FaSignOutAlt, FaBuilding, FaAmazon, FaIndustry } from "react-icons/fa";
+import { FaFilter, FaBars, FaUser, FaSignOutAlt, FaBuilding, FaAmazon, FaIndustry } from "react-icons/fa";
 import { logout } from '../utils/auth'; 
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../firebase-config';
 import { onAuthStateChanged } from "firebase/auth";
 
 const opportunities = [
-  { title: "Investment Banking Analyst", description: "Join a top-tier investment bank and gain hands-on experience in financial analysis, market research, and client management...", tags: ["London", "£40,000", "Finance", "12 months"], company: "JPMorgan", icon: <FaBuilding />, deadline: "Apply by: 31 Oct 2023", startDate: "Start: Jan 2024" },
-  { title: "Software Engineering Intern", description: "Work with a dynamic development team on cutting-edge applications, gaining exposure to full-stack development and cloud technologies...", tags: ["Manchester", "£30,000", "Software Engineering", "6 months"], company: "Amazon", icon: <FaAmazon />, deadline: "Apply by: 15 Nov 2023", startDate: "Start: Mar 2024" },
-  { title: "Marketing & PR Associate", description: "Assist in executing marketing campaigns, social media management, and public relations strategies for a growing tech company...", tags: ["Birmingham", "£28,000", "Marketing", "9 months"], company: "Deloitte", icon: <FaBuilding />, deadline: "Apply by: 20 Nov 2023", startDate: "Start: Feb 2024" },
+  { title: "Investment Banking Analyst", description: "Join a top-tier investment bank and gain hands-on experience in financial analysis, market research, and client management...", tags: ["London", "£40,000", "Finance", "12 months"], company: "JPMorgan", icon: <FaBuilding />, deadline: "Apply by: 31 Oct 2025", startDate: "Start: Jan 2026" },
+  { title: "Software Engineering Intern", description: "Work with a dynamic development team on cutting-edge applications, gaining exposure to full-stack development and cloud technologies...", tags: ["Manchester", "£30,000", "Software Engineering", "6 months"], company: "Amazon", icon: <FaAmazon />, deadline: "Apply by: 15 Nov 2025", startDate: "Start: Mar 2026" },
+  { title: "Marketing & PR Associate", description: "Assist in executing marketing campaigns, social media management, and public relations strategies for a growing tech company...", tags: ["Birmingham", "£28,000", "Marketing", "9 months"], company: "Deloitte", icon: <FaBuilding />, deadline: "Apply by: 20 Nov 2025", startDate: "Start: Feb 2026" },
 ];
 
 const applications = [
-  { title: "Data Science Internship", description: "Analyze large datasets, create machine learning models, and contribute to data-driven decision-making for a leading AI firm...", tags: ["London", "£35,000", "Data Science", "12 months"], status: "Submitted", company: "Rolls Royce", icon: <FaIndustry />, deadline: "Apply by: 10 Oct 2023", startDate: "Start: Dec 2023" },
-  { title: "Consulting Analyst Intern", description: "Collaborate with experienced consultants to solve business challenges, conduct market research, and prepare client presentations...", tags: ["Edinburgh", "£32,000", "Consulting", "10 months"], status: "Interview", company: "Deloitte", icon: <FaBuilding />, deadline: "Apply by: 25 Oct 2023", startDate: "Start: Jan 2024" },
-  { title: "UX/UI Design Internship", description: "Work closely with product designers and engineers to create intuitive user experiences and refine product interfaces...", tags: ["Remote", "£30,000", "Design", "6 months"], status: "Waiting", company: "Amazon", icon: <FaAmazon />, deadline: "Apply by: 30 Oct 2023", startDate: "Start: Feb 2024" },
+  { title: "Data Science Internship", description: "Analyze large datasets, create machine learning models, and contribute to data-driven decision-making for a leading AI firm...", tags: ["London", "£35,000", "Data Science", "12 months"], status: "Submitted", company: "Rolls Royce", icon: <FaIndustry />, deadline: "Apply by: 10 Oct 2025", startDate: "Start: Dec 2025" },
+  { title: "Consulting Analyst Intern", description: "Collaborate with experienced consultants to solve business challenges, conduct market research, and prepare client presentations...", tags: ["Edinburgh", "£32,000", "Consulting", "10 months"], status: "Interview", company: "Deloitte", icon: <FaBuilding />, deadline: "Apply by: 25 Oct 2025", startDate: "Start: Jan 2026" },
+  { title: "UX/UI Design Internship", description: "Work closely with product designers and engineers to create intuitive user experiences and refine product interfaces...", tags: ["Remote", "£30,000", "Design", "6 months"], status: "Waiting", company: "Amazon", icon: <FaAmazon />, deadline: "Apply by: 30 Oct 2025", startDate: "Start: Feb 2026" },
 ];
 
 const filterOptions = {
@@ -24,10 +24,13 @@ const filterOptions = {
   Length: ["6 months", "9 months", "10 months", "12 months"]
 };
 
-const PlacementOpportunity = ({ title, description, tags, status, company, icon, deadline, startDate, showAddButton, showRemoveButton, onAdd, onRemove }) => (
+const PlacementOpportunity = ({ title, description, tags, status, company, icon, deadline, startDate, showAddButton, showRemoveButton, onAdd, onRemove, onDetails }) => (
   <div className="placement-opportunity">
     <div className="company-icon">{icon}</div>
-    <div className="placement-info">
+    <div className="placement-info" 
+      onClick={onDetails}  
+      style={{ cursor: 'pointer' }}
+      > 
       <div className="placement-title">
         {title}
         <span className="company-tag">{company}</span>
@@ -71,6 +74,11 @@ const MainPage = () => {
   const [filteredApplications, setFilteredApplications] = useState(applications);
   const menuRef = useRef(null); 
   const navigate = useNavigate();
+
+  const handleOpportunityDetails = (opportunity) => {
+    const opportunitySlug = opportunity.title.replace(/\s+/g, '-').toLowerCase();
+    navigate(`/opportunity/${opportunitySlug}`);
+  };
 
   // Check authentication state
   useEffect(() => {
@@ -241,10 +249,6 @@ const MainPage = () => {
                 <FaUser className="menu-icon" />
                 <span>Profile</span>
               </Link>
-              <div className="menu-item">
-                <FaCog className="menu-icon" />
-                <span>Settings</span>
-              </div>
               <div className="menu-item" onClick={handleLogout}>
                 <FaSignOutAlt className="menu-icon" />
                 <span>Logout</span>
@@ -284,7 +288,8 @@ const MainPage = () => {
                 {...opportunity} 
                 showAddButton={true}
                 showRemoveButton={false}
-                onAdd={() => handleAddApplication(opportunity)} />))}
+                onAdd={() => handleAddApplication(opportunity)}
+                onDetails={() => handleOpportunityDetails(opportunity)} />))}
           </div>
         </div>
         <div className="tab">
