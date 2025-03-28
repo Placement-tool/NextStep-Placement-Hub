@@ -39,7 +39,8 @@ const opportunities = [
     `,
     icon: <FaBuilding />,
     deadline: "Apply by: 31 Oct 2025", 
-    startDate: "Start: Jan 2026" 
+    startDate: "Start: Jan 2026",
+    applicationLink: "https://careers.jpmorgan.com/global/en/students/programs/investment-banking-summer-analyst?search=&tags=location__EuropeMiddleEastandAfrica__UnitedKingdom"
   },
 ];
 
@@ -138,32 +139,40 @@ const OpportunityDetailsPage = () => {
                 </pre>
               </div>
 
-              <button 
-              className="add-button"
-              style={{ 
-                margin: '20px 0', 
-                width: '90%',  // Reduced from 100% to 70%
-                maxWidth: '400px', // Added max-width to prevent it from getting too wide on larger screens
-                padding: '12px', 
-                fontSize: '1.1rem',
-                textAlign: 'center',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                alignSelf: 'center', // Center the button itself within its container
-                marginLeft: 'auto',
-                marginRight: 'auto'
-              }}
-            >
-              Apply Now!
-            </button>
+              <a 
+                href={opportunity.applicationLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ 
+                  textDecoration: 'none',
+                  display: 'block',
+                  width: '90%',
+                  maxWidth: '400px',
+                  margin: '20px auto'
+                }}
+              >
+                <button 
+                  className="add-button"
+                  style={{ 
+                    width: '100%',
+                    padding: '12px', 
+                    fontSize: '1.1rem',
+                    textAlign: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Apply Now!
+                </button>
+              </a>
             </div>
 
-            {/* Added extra space at the bottom of the tab */}
-          <div style={{ 
-            height: '50px', // Adds scrollable space after the button
-            width: '100%'
-          }}></div>
+            <div style={{ 
+              height: '50px',
+              width: '100%'
+            }}></div>
           </div>
         </div>
       </div>

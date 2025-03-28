@@ -80,15 +80,14 @@ const MainPage = () => {
     navigate(`/opportunity/${opportunitySlug}`);
   };
 
-  // Check authentication state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        navigate('/'); // Redirect to login if not authenticated
+        navigate('/'); 
       }
     });
 
-    return () => unsubscribe(); // Cleanup subscription
+    return () => unsubscribe(); 
   }, [navigate]);
   
   const handleAddApplication = (opportunity) => {
