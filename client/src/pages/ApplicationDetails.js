@@ -14,7 +14,6 @@ import {
 } from "react-icons/fa";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase-config";
-import "../styles/global.css";
 
 // Hardcoded data for the Data Science Internship application
 const dataScience = {
@@ -69,7 +68,7 @@ const statusInfo = {
 };
 
 const ApplicationDetails = () => {
-  const { applicationId } = useParams();
+  const { id } = useParams();
   const [application, setApplication] = useState(null);
   const [loading, setLoading] = useState(true);
   const [withdrawModalOpen, setWithdrawModalOpen] = useState(false);
@@ -83,17 +82,17 @@ const ApplicationDetails = () => {
     });
 
     // For demo, we'll just use our hardcoded data science application
-    if (applicationId === "data-science-internship") {
+    if (id === "data-science-internship") {
       setApplication(dataScience);
     }
     
     setLoading(false);
     
     return () => unsubscribe();
-  }, [applicationId, navigate]);
+  }, [id, navigate]);
 
   const handleWithdraw = () => {
-    console.log("Application withdrawn:", applicationId);
+    console.log("Application withdrawn:", id);
     setWithdrawModalOpen(false);
     navigate('/main');
   };
@@ -112,9 +111,13 @@ const ApplicationDetails = () => {
 
   if (!application) {
     return (
-      <div className="not-found">
+      <div className="not-found" style={{ textAlign: 'center', margin: '50px auto', color: '#DC5F2E' }}>
         <h2>Application not found</h2>
-        <button className="back-button" onClick={() => navigate('/main')}>
+        <button 
+          className="add-button" 
+          onClick={() => navigate('/main')}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', margin: '20px auto' }}
+        >
           <FaArrowLeft /> Back to Dashboard
         </button>
       </div>
@@ -122,150 +125,287 @@ const ApplicationDetails = () => {
   }
 
   return (
-    <div className="application-details-container">
-      <button className="back-button" onClick={() => navigate('/main')}>
-        <FaArrowLeft /> Back to Dashboard
-      </button>
-
-      <div className="application-header">
-        <div className="company-icon large">{application.icon}</div>
-        <div className="header-content">
-          <h1>{application.title}</h1>
-          <div className="company-name">{application.company}</div>
-          <div className="tags-container">
-            {application.tags.map((tag, index) => (
-              <span key={index} className="tag">{tag}</span>
-            ))}
+    <div>
+      <div className="header">
+        <div className="menu-container">
+          <div className="menu-icon" onClick={() => navigate('/main')}>
+            <FaArrowLeft />
           </div>
         </div>
+        <h1>Application Details</h1>
       </div>
-
-      <div className="application-status-section">
-        <h2>Application Status</h2>
-        <div className="status-container">
-          <div className={`status-badge ${getStatusClass(application.status)}`}>
-            {getStatusIcon(application.status)} {application.status}
+    
+      <div className="tabs-container">
+        <div className="tab">
+          <div className="tab-title">
+            <div className="placement-title">
+              {application.title}
+              <span className="company-tag">{application.company}</span>
+              <span className="deadline-tag">Deadline: {application.deadline}</span>
+              <span className="start-date-tag">Start: {application.startDate}</span>
+            </div>
           </div>
-          
-          <div className="status-timeline">
-            {application.applicationHistory.map((event, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-icon">{event.icon}</div>
-                <div className="timeline-content">
-                  <div className="timeline-status">{event.status}</div>
-                  <div className="timeline-date">{event.date} at {event.time}</div>
+        
+          <div className="tab-content">
+            <div className="placement-opportunity">
+              <div className="company-icon">{application.icon}</div>
+              <div className="placement-info">
+                <div className="opportunity-meta">
+                  <div className="placement-tags">
+                    {application.tags.map((tag, index) => (
+                      <span key={index} className="tag">{tag}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {application.interviewDate && (
-            <div className="interview-details">
-              <h3>Upcoming Interview</h3>
-              <div className="interview-info">
-                <div className="info-item">
-                  <FaCalendarAlt className="info-icon" />
-                  <span>Date: {application.interviewDate}</span>
-                </div>
-                <div className="info-item">
-                  <FaRegClock className="info-icon" />
-                  <span>Time: {application.interviewTime}</span>
-                </div>
-                <div className="info-item">
-                  <FaBuilding className="info-icon" />
-                  <span>Location: {application.interviewLocation}</span>
-                </div>
+                <p className="placement-description">{application.description}</p>
               </div>
             </div>
-          )}
-        </div>
-      </div>
 
-      <div className="application-details-section">
-        <h2>Job Description</h2>
-        <p>{application.description}</p>
-      </div>
+            <div className="details-section" style={{ 
+              marginBottom: '20px',
+              padding: '15px',
+              background: '#F3F1DE', 
+              borderRadius: '12px',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+            }}>
+              <h2 style={{ color: '#DC5F2E', borderBottom: '2px solid #DC5F2E', paddingBottom: '10px' }}>
+                Application Status
+              </h2>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+                <div className={`status ${getStatusClass(application.status)}`} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                  fontWeight: 'bold',
+                  fontSize: '1.1rem',
+                  padding: '8px 12px'
+                }}>
+                  {getStatusIcon(application.status)} {application.status}
+                </div>
+              </div>
+              
+              <div style={{ 
+                marginTop: '20px', 
+                borderLeft: '3px solid #DC5F2E',
+                paddingLeft: '20px'
+              }}>
+                {application.applicationHistory.map((event, index) => (
+                  <div key={index} style={{ 
+                    marginBottom: '15px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                  }}>
+                    <div style={{ 
+                      color: '#DC5F2E', 
+                      fontSize: '1.5rem'
+                    }}>{event.icon}</div>
+                    <div>
+                      <div style={{ fontWeight: 'bold' }}>{event.status}</div>
+                      <div style={{ fontSize: '0.9rem', color: '#555' }}>{event.date} at {event.time}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-      <div className="requirements-section">
-        <h2>Requirements</h2>
-        <ul>
-          {application.requirements.map((req, index) => (
-            <li key={index}>{req}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="responsibilities-section">
-        <h2>Responsibilities</h2>
-        <ul>
-          {application.responsibilities.map((resp, index) => (
-            <li key={index}>{resp}</li>
-          ))}
-        </ul>
-      </div>
-
-      {application.nextSteps && (
-        <div className="next-steps-section">
-          <h2>Next Steps</h2>
-          <ul>
-            {application.nextSteps.map((step, index) => (
-              <li key={index}>{step}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <div className="key-dates">
-        <h2>Key Dates</h2>
-        <div className="dates-container">
-          <div className="date-item">
-            <FaFileAlt className="date-icon" />
-            <div>
-              <div className="date-label">Application Submitted</div>
-              <div className="date-value">{application.submittedDate} at {application.submittedTime}</div>
+              {application.interviewDate && (
+                <div style={{ 
+                  marginTop: '20px',
+                  padding: '15px',
+                  background: '#F4F4DC',
+                  borderRadius: '10px',
+                  border: '2px solid #DC5F2E'
+                }}>
+                  <h3 style={{ color: '#DC5F2E', marginTop: '0' }}>Upcoming Interview</h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <FaCalendarAlt style={{ color: '#DC5F2E' }} />
+                      <span>Date: {application.interviewDate}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <FaRegClock style={{ color: '#DC5F2E' }} />
+                      <span>Time: {application.interviewTime}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <FaBuilding style={{ color: '#DC5F2E' }} />
+                      <span>Location: {application.interviewLocation}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-          <div className="date-item">
-            <FaRegClock className="date-icon" />
-            <div>
-              <div className="date-label">Application Deadline</div>
-              <div className="date-value">{application.deadline}</div>
+
+            <div className="details-section" style={{ 
+              marginBottom: '20px',
+              padding: '15px',
+              background: '#F3F1DE',
+              borderRadius: '12px',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+            }}>
+              <h2 style={{ color: '#DC5F2E', borderBottom: '2px solid #DC5F2E', paddingBottom: '10px' }}>
+                Requirements
+              </h2>
+              <ul style={{ 
+                paddingLeft: '20px',
+                color: '#333',
+                lineHeight: '1.6'
+              }}>
+                {application.requirements.map((req, index) => (
+                  <li key={index}>{req}</li>
+                ))}
+              </ul>
             </div>
-          </div>
-          <div className="date-item">
-            <FaCalendarAlt className="date-icon" />
-            <div>
-              <div className="date-label">Placement Start Date</div>
-              <div className="date-value">{application.startDate}</div>
+
+            <div className="details-section" style={{ 
+              marginBottom: '20px',
+              padding: '15px',
+              background: '#F3F1DE',
+              borderRadius: '12px',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+            }}>
+              <h2 style={{ color: '#DC5F2E', borderBottom: '2px solid #DC5F2E', paddingBottom: '10px' }}>
+                Responsibilities
+              </h2>
+              <ul style={{ 
+                paddingLeft: '20px',
+                color: '#333',
+                lineHeight: '1.6'
+              }}>
+                {application.responsibilities.map((resp, index) => (
+                  <li key={index}>{resp}</li>
+                ))}
+              </ul>
             </div>
+
+            {application.nextSteps && (
+              <div className="details-section" style={{ 
+                marginBottom: '20px',
+                padding: '15px',
+                background: '#F3F1DE',
+                borderRadius: '12px',
+                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+              }}>
+                <h2 style={{ color: '#DC5F2E', borderBottom: '2px solid #DC5F2E', paddingBottom: '10px' }}>
+                  Next Steps
+                </h2>
+                <ul style={{ 
+                  paddingLeft: '20px',
+                  color: '#333',
+                  lineHeight: '1.6'
+                }}>
+                  {application.nextSteps.map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="details-section" style={{ 
+              marginBottom: '20px',
+              padding: '15px',
+              background: '#F3F1DE',
+              borderRadius: '12px',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+            }}>
+              <h2 style={{ color: '#DC5F2E', borderBottom: '2px solid #DC5F2E', paddingBottom: '10px' }}>
+                Key Dates
+              </h2>
+              <div style={{ 
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '15px',
+                marginTop: '15px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <FaFileAlt style={{ color: '#DC5F2E', fontSize: '1.5rem' }} />
+                  <div>
+                    <div style={{ fontWeight: 'bold' }}>Application Submitted</div>
+                    <div style={{ color: '#555' }}>{application.submittedDate} at {application.submittedTime}</div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <FaRegClock style={{ color: '#DC5F2E', fontSize: '1.5rem' }} />
+                  <div>
+                    <div style={{ fontWeight: 'bold' }}>Application Deadline</div>
+                    <div style={{ color: '#555' }}>{application.deadline}</div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <FaCalendarAlt style={{ color: '#DC5F2E', fontSize: '1.5rem' }} />
+                  <div>
+                    <div style={{ fontWeight: 'bold' }}>Placement Start Date</div>
+                    <div style={{ color: '#555' }}>{application.startDate}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ 
+              textAlign: 'center', 
+              marginTop: '30px', 
+              marginBottom: '30px' 
+            }}>
+              <button 
+                className="remove-button"
+                onClick={() => setWithdrawModalOpen(true)}
+              >
+                <FaTimesCircle /> Withdraw Application
+              </button>
+            </div>
+
+            {/* Extra space at bottom */}
+            <div style={{ height: '50px', width: '100%' }}></div>
           </div>
         </div>
-      </div>
-
-      <div className="application-actions">
-        <button 
-          className="withdraw-button"
-          onClick={() => setWithdrawModalOpen(true)}
-        >
-          Withdraw Application
-        </button>
       </div>
 
       {withdrawModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2>Withdraw Application</h2>
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000
+        }}>
+          <div style={{
+            background: '#F3F1DE',
+            padding: '20px',
+            borderRadius: '10px',
+            maxWidth: '500px',
+            width: '90%',
+            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)',
+            border: '2px solid #DC5F2E'
+          }}>
+            <h2 style={{ color: '#DC5F2E', marginTop: 0 }}>Withdraw Application</h2>
             <p>Are you sure you want to withdraw your application for {application.title} at {application.company}?</p>
-            <p>This action cannot be undone.</p>
-            <div className="modal-actions">
+            <p style={{ fontWeight: 'bold', color: '#F44336' }}>This action cannot be undone.</p>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'flex-end', 
+              gap: '10px',
+              marginTop: '20px'
+            }}>
               <button 
-                className="cancel-button"
                 onClick={() => setWithdrawModalOpen(false)}
+                style={{
+                  padding: '8px 15px',
+                  background: '#F3F1DE',
+                  border: '2px solid #DC5F2E',
+                  borderRadius: '5px',
+                  color: '#DC5F2E',
+                  fontWeight: 'bold',
+                  cursor: 'pointer'
+                }}
               >
                 Cancel
               </button>
               <button 
-                className="confirm-button"
+                className="remove-button"
                 onClick={handleWithdraw}
               >
                 Confirm Withdrawal
