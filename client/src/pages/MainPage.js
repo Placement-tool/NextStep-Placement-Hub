@@ -12,9 +12,9 @@ const opportunities = [
 ];
 
 const applications = [
-  { title: "Data Science Internship", description: "Analyze large datasets, create machine learning models, and contribute to data-driven decision-making for a leading AI firm...", tags: ["London", "£35,000", "Data Science", "12 months"], status: "Submitted", company: "Rolls Royce", icon: <FaIndustry />, deadline: "Apply by: 10 Oct 2025", startDate: "Start: Dec 2025" },
-  { title: "Consulting Analyst Intern", description: "Collaborate with experienced consultants to solve business challenges, conduct market research, and prepare client presentations...", tags: ["Edinburgh", "£32,000", "Consulting", "10 months"], status: "Interview", company: "Deloitte", icon: <FaBuilding />, deadline: "Apply by: 25 Oct 2025", startDate: "Start: Jan 2026" },
-  { title: "UX/UI Design Internship", description: "Work closely with product designers and engineers to create intuitive user experiences and refine product interfaces...", tags: ["Remote", "£30,000", "Design", "6 months"], status: "Waiting", company: "Amazon", icon: <FaAmazon />, deadline: "Apply by: 30 Oct 2025", startDate: "Start: Feb 2026" },
+  { id: "data-science-internship", title: "Data Science Internship", description: "Analyze large datasets, create machine learning models, and contribute to data-driven decision-making for a leading AI firm...", tags: ["London", "£35,000", "Data Science", "12 months"], status: "Submitted", company: "Rolls Royce", icon: <FaIndustry />, deadline: "Apply by: 10 Oct 2025", startDate: "Start: Dec 2025" },
+  { id: "consulting-analyst-intern", title: "Consulting Analyst Intern", description: "Collaborate with experienced consultants to solve business challenges, conduct market research, and prepare client presentations...", tags: ["Edinburgh", "£32,000", "Consulting", "10 months"], status: "Interview", company: "Deloitte", icon: <FaBuilding />, deadline: "Apply by: 25 Oct 2025", startDate: "Start: Jan 2026" },
+  { id: "ux-ui-design-internship", title: "UX/UI Design Internship", description: "Work closely with product designers and engineers to create intuitive user experiences and refine product interfaces...", tags: ["Remote", "£30,000", "Design", "6 months"], status: "Waiting", company: "Amazon", icon: <FaAmazon />, deadline: "Apply by: 30 Oct 2025", startDate: "Start: Feb 2026" },
 ];
 
 const filterOptions = {
@@ -24,7 +24,7 @@ const filterOptions = {
   Length: ["6 months", "9 months", "10 months", "12 months"]
 };
 
-const PlacementOpportunity = ({ title, description, tags, status, company, icon, deadline, startDate, showAddButton, showRemoveButton, onAdd, onRemove, onDetails }) => (
+const PlacementOpportunity = ({ id, title, description, tags, status, company, icon, deadline, startDate, showAddButton, showRemoveButton, onAdd, onRemove, onDetails }) => (
   <div className="placement-opportunity">
     <div className="company-icon">{icon}</div>
     <div className="placement-info" 
@@ -79,6 +79,12 @@ const MainPage = () => {
     const opportunitySlug = opportunity.title.replace(/\s+/g, '-').toLowerCase();
     navigate(`/opportunity/${opportunitySlug}`);
   };
+  
+  const handleApplicationDetails = (application) => {
+    // Use the id property if available, otherwise generate from title
+    const applicationId = application.id || application.title.replace(/\s+/g, '-').toLowerCase();
+    navigate(`/application/${applicationId}`);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -91,8 +97,12 @@ const MainPage = () => {
   }, [navigate]);
   
   const handleAddApplication = (opportunity) => {
+    // Generate an ID for the new application based on the title
+    const id = opportunity.title.replace(/\s+/g, '-').toLowerCase();
+    
     const newApplication = {
       ...opportunity,
+      id,
       status: "Submitted"
     };
     
@@ -321,7 +331,8 @@ const MainPage = () => {
                 {...application} 
                 showAddButton={false}
                 showRemoveButton={true}
-                onRemove={() => handleRemoveApplication(application)} />))}
+                onRemove={() => handleRemoveApplication(application)}
+                onDetails={() => handleApplicationDetails(application)} />))}
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import MainPage from './pages/MainPage';
 import ApplicationTracker from './pages/ApplicationTracker';
 import OpportunityDetails from './pages/OpportunityDetails'; 
+import ApplicationDetails from './pages/ApplicationDetails';
 import { auth } from './firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -67,6 +68,10 @@ const App = () => {
         <Route 
           path="/opportunity/:id" 
           element={<OpportunityDetails />} 
+        />
+        <Route 
+          path="/application/:id" 
+          element={<ApplicationDetails />} 
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
