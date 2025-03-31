@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FaArrowLeft, FaBuilding, FaCalendar, FaClock, FaMoneyBillWave, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaBuilding } from 'react-icons/fa';
 
 const opportunities = [
   { 

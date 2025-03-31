@@ -353,7 +353,6 @@ const ApplicationDetails = () => {
               </button>
             </div>
 
-            {/* Extra space at bottom */}
             <div style={{ height: '50px', width: '100%' }}></div>
           </div>
         </div>
