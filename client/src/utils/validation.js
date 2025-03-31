@@ -56,7 +56,7 @@ export function getLoginFormErrors(email, password) {
     return errors;
 }
 
-function isValidEmail(email) {
+export function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
