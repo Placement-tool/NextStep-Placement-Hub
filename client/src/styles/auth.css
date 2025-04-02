@@ -1,4 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root{
     --accent-color: #E76F51;
@@ -148,4 +148,4 @@ form div.incorrect {
 
 #error-message {
     color: #e44444;
-}*/
+}

@@ -1,4 +1,4 @@
-/*import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
@@ -21,7 +21,6 @@ const StudentSignup = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     
-    // Remove incorrect class when user starts typing
     if (e.target.parentElement.classList.contains('incorrect')) {
       e.target.parentElement.classList.remove('incorrect');
       setErrorMessage('');
@@ -91,7 +90,7 @@ const StudentSignup = () => {
         createdAt: new Date()
       });
       
-      navigate('/main'); // Redirect to main page after successful signup
+      navigate('/main'); 
     } catch (error) {
       console.error('Signup error:', error);
       if (error.code === 'auth/email-already-in-use') {
@@ -202,4 +201,4 @@ const StudentSignup = () => {
   );
 };
 
-export default StudentSignup;*/
+export default StudentSignup;

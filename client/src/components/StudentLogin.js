@@ -1,4 +1,4 @@
-/*import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase-config';
@@ -111,4 +111,4 @@ const StudentLogin = () => {
   );
 };
 
-export default StudentLogin;*/
+export default StudentLogin;

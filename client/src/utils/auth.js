@@ -54,7 +54,6 @@ export const handleLogin = async (email, password, navigate) => {
   }
 };
 
-// Student-specific functions
 export const handleStudentSignup = async (email, password, name, confirmPassword, navigate) => {
   const errors = getSignupFormErrors(name, email, password, confirmPassword);
   
@@ -66,8 +65,6 @@ export const handleStudentSignup = async (email, password, name, confirmPassword
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     await updateProfile(userCredential.user, {
       displayName: name,
-      // You could add a user type here to differentiate between company and student users
-      // This data would be better stored in Firestore though
     });
     navigate('/main'); 
     return null; 
@@ -96,7 +93,6 @@ export const handleStudentLogin = async (email, password, navigate) => {
 
 export const handlePasswordReset = async (email) => {
   try {
-    // Check if the email exists before sending reset email
     const emailExists = await checkEmailExists(email);
     
     if (!emailExists) {

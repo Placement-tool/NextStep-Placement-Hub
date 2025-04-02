@@ -12,7 +12,6 @@ import ApplicationDetails from './pages/ApplicationDetails';
 import { auth } from './firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 
-// Protected route component
 const ProtectedRoute = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);

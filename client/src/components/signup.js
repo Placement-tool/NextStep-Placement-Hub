@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { handleSignup } from '../utils/auth';  // Import handleSignup from your auth.js
+import { handleSignup } from '../utils/auth';  
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,6 @@ const Signup = () => {
     e.preventDefault();
     setErrorMessage('');
     
-    // Use the handleSignup function from auth.js
     const error = await handleSignup(
       formData.email,
       formData.password,

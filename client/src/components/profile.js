@@ -127,7 +127,6 @@ function Profile() {
     return <div className="wrapper">Loading...</div>;
   }
 
-  // Custom styling for profile page that matches your existing CSS
   const profileContainerStyle = {
     width: '100%',
     maxWidth: '100%',

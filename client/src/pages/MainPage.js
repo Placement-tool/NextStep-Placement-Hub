@@ -97,7 +97,6 @@ const MainPage = () => {
   }, [navigate]);
   
   const handleAddApplication = (opportunity) => {
-    // Generate an ID for the new application based on the title
     const id = opportunity.title.replace(/\s+/g, '-').toLowerCase();
     
     const newApplication = {

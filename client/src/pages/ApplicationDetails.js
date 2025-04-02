@@ -15,7 +15,6 @@ import {
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase-config";
 
-// Hardcoded data for the Data Science Internship application
 const dataScience = {
   id: "data-science-internship",
   title: "Data Science Internship",
@@ -57,7 +56,6 @@ const dataScience = {
   ]
 };
 
-// Status badge classnames and icons mapping
 const statusInfo = {
   "Submitted": { class: "submitted", icon: <FaFileAlt /> },
   "Under Review": { class: "waiting", icon: <FaHourglassHalf /> },
@@ -81,7 +79,6 @@ const ApplicationDetails = () => {
       }
     });
 
-    // For demo, we'll just use our hardcoded data science application
     if (id === "data-science-internship") {
       setApplication(dataScience);
     }
