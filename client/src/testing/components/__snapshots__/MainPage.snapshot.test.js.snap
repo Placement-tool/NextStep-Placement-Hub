@@ -1,0 +1,1293 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage Component should match snapshot when no user is logged in 1`] = `
+<div>
+  <div>
+    <div
+      class="header"
+    >
+      <h1>
+        Placement Tool
+      </h1>
+      <div
+        class="menu-container"
+      >
+        <div
+          class="menu-icon"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tabs-container"
+    >
+      <div
+        class="tab"
+      >
+        <div
+          class="tab-title"
+        >
+          <span>
+            New Opportunities
+          </span>
+          <div
+            class="filter-container "
+          >
+            <span
+              class="filter-text"
+            >
+              Filter by
+            </span>
+            <svg
+              class="filter-icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="tab-content"
+        >
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Investment Banking Analyst
+                <span
+                  class="company-tag"
+                >
+                  JPMorgan
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 31 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Join a top-tier investment bank and gain hands-on experience in financial analysis, market research, and client management...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Jan 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  London
+                </span>
+                <span
+                  class="tag"
+                >
+                  £40,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Finance
+                </span>
+                <span
+                  class="tag"
+                >
+                  12 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <button
+                class="add-button"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8v40.6zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Software Engineering Intern
+                <span
+                  class="company-tag"
+                >
+                  Amazon
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 15 Nov 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Work with a dynamic development team on cutting-edge applications, gaining exposure to full-stack development and cloud technologies...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Mar 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Manchester
+                </span>
+                <span
+                  class="tag"
+                >
+                  £30,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Software Engineering
+                </span>
+                <span
+                  class="tag"
+                >
+                  6 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <button
+                class="add-button"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Marketing & PR Associate
+                <span
+                  class="company-tag"
+                >
+                  Deloitte
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 20 Nov 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Assist in executing marketing campaigns, social media management, and public relations strategies for a growing tech company...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Feb 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Birmingham
+                </span>
+                <span
+                  class="tag"
+                >
+                  £28,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Marketing
+                </span>
+                <span
+                  class="tag"
+                >
+                  9 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <button
+                class="add-button"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab"
+      >
+        <div
+          class="tab-title"
+        >
+          <span>
+            Your Applications
+          </span>
+          <div
+            class="filter-container "
+          >
+            <span
+              class="filter-text"
+            >
+              Filter by
+            </span>
+            <svg
+              class="filter-icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="tab-content"
+        >
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M475.115 163.781L336 252.309v-68.28c0-18.916-20.931-30.399-36.885-20.248L160 252.309V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56v400c0 13.255 10.745 24 24 24h464c13.255 0 24-10.745 24-24V184.029c0-18.917-20.931-30.399-36.885-20.248z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Data Science Internship
+                <span
+                  class="company-tag"
+                >
+                  Rolls Royce
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 10 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Analyze large datasets, create machine learning models, and contribute to data-driven decision-making for a leading AI firm...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Dec 2025
+                </span>
+                <span
+                  class="tag"
+                >
+                  London
+                </span>
+                <span
+                  class="tag"
+                >
+                  £35,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Data Science
+                </span>
+                <span
+                  class="tag"
+                >
+                  12 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <div
+                class="placement-status"
+              >
+                <span
+                  class="status submitted"
+                >
+                  Submitted
+                </span>
+              </div>
+              <button
+                class="remove-button"
+              >
+                - Remove
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Consulting Analyst Intern
+                <span
+                  class="company-tag"
+                >
+                  Deloitte
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 25 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Collaborate with experienced consultants to solve business challenges, conduct market research, and prepare client presentations...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Jan 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Edinburgh
+                </span>
+                <span
+                  class="tag"
+                >
+                  £32,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Consulting
+                </span>
+                <span
+                  class="tag"
+                >
+                  10 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <div
+                class="placement-status"
+              >
+                <span
+                  class="status interview"
+                >
+                  Interview
+                </span>
+              </div>
+              <button
+                class="remove-button"
+              >
+                - Remove
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8v40.6zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                UX/UI Design Internship
+                <span
+                  class="company-tag"
+                >
+                  Amazon
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 30 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Work closely with product designers and engineers to create intuitive user experiences and refine product interfaces...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Feb 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Remote
+                </span>
+                <span
+                  class="tag"
+                >
+                  £30,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Design
+                </span>
+                <span
+                  class="tag"
+                >
+                  6 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <div
+                class="placement-status"
+              >
+                <span
+                  class="status waiting"
+                >
+                  Waiting
+                </span>
+              </div>
+              <button
+                class="remove-button"
+              >
+                - Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MainPage Component should render correctly and match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="header"
+    >
+      <h1>
+        Placement Tool
+      </h1>
+      <div
+        class="menu-container"
+      >
+        <div
+          class="menu-icon"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tabs-container"
+    >
+      <div
+        class="tab"
+      >
+        <div
+          class="tab-title"
+        >
+          <span>
+            New Opportunities
+          </span>
+          <div
+            class="filter-container "
+          >
+            <span
+              class="filter-text"
+            >
+              Filter by
+            </span>
+            <svg
+              class="filter-icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="tab-content"
+        >
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Investment Banking Analyst
+                <span
+                  class="company-tag"
+                >
+                  JPMorgan
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 31 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Join a top-tier investment bank and gain hands-on experience in financial analysis, market research, and client management...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Jan 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  London
+                </span>
+                <span
+                  class="tag"
+                >
+                  £40,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Finance
+                </span>
+                <span
+                  class="tag"
+                >
+                  12 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <button
+                class="add-button"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8v40.6zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Software Engineering Intern
+                <span
+                  class="company-tag"
+                >
+                  Amazon
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 15 Nov 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Work with a dynamic development team on cutting-edge applications, gaining exposure to full-stack development and cloud technologies...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Mar 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Manchester
+                </span>
+                <span
+                  class="tag"
+                >
+                  £30,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Software Engineering
+                </span>
+                <span
+                  class="tag"
+                >
+                  6 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <button
+                class="add-button"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Marketing & PR Associate
+                <span
+                  class="company-tag"
+                >
+                  Deloitte
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 20 Nov 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Assist in executing marketing campaigns, social media management, and public relations strategies for a growing tech company...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Feb 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Birmingham
+                </span>
+                <span
+                  class="tag"
+                >
+                  £28,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Marketing
+                </span>
+                <span
+                  class="tag"
+                >
+                  9 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <button
+                class="add-button"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab"
+      >
+        <div
+          class="tab-title"
+        >
+          <span>
+            Your Applications
+          </span>
+          <div
+            class="filter-container "
+          >
+            <span
+              class="filter-text"
+            >
+              Filter by
+            </span>
+            <svg
+              class="filter-icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="tab-content"
+        >
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M475.115 163.781L336 252.309v-68.28c0-18.916-20.931-30.399-36.885-20.248L160 252.309V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56v400c0 13.255 10.745 24 24 24h464c13.255 0 24-10.745 24-24V184.029c0-18.917-20.931-30.399-36.885-20.248z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Data Science Internship
+                <span
+                  class="company-tag"
+                >
+                  Rolls Royce
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 10 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Analyze large datasets, create machine learning models, and contribute to data-driven decision-making for a leading AI firm...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Dec 2025
+                </span>
+                <span
+                  class="tag"
+                >
+                  London
+                </span>
+                <span
+                  class="tag"
+                >
+                  £35,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Data Science
+                </span>
+                <span
+                  class="tag"
+                >
+                  12 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <div
+                class="placement-status"
+              >
+                <span
+                  class="status submitted"
+                >
+                  Submitted
+                </span>
+              </div>
+              <button
+                class="remove-button"
+              >
+                - Remove
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                Consulting Analyst Intern
+                <span
+                  class="company-tag"
+                >
+                  Deloitte
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 25 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Collaborate with experienced consultants to solve business challenges, conduct market research, and prepare client presentations...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Jan 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Edinburgh
+                </span>
+                <span
+                  class="tag"
+                >
+                  £32,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Consulting
+                </span>
+                <span
+                  class="tag"
+                >
+                  10 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <div
+                class="placement-status"
+              >
+                <span
+                  class="status interview"
+                >
+                  Interview
+                </span>
+              </div>
+              <button
+                class="remove-button"
+              >
+                - Remove
+              </button>
+            </div>
+          </div>
+          <div
+            class="placement-opportunity"
+          >
+            <div
+              class="company-icon"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8v40.6zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z"
+                />
+              </svg>
+            </div>
+            <div
+              class="placement-info"
+              style="cursor: pointer;"
+            >
+              <div
+                class="placement-title"
+              >
+                UX/UI Design Internship
+                <span
+                  class="company-tag"
+                >
+                  Amazon
+                </span>
+                <span
+                  class="deadline-tag"
+                >
+                  Apply by: 30 Oct 2025
+                </span>
+              </div>
+              <div
+                class="placement-description"
+              >
+                Work closely with product designers and engineers to create intuitive user experiences and refine product interfaces...
+              </div>
+              <div
+                class="placement-tags"
+              >
+                <span
+                  class="start-date-tag"
+                >
+                  Start: Feb 2026
+                </span>
+                <span
+                  class="tag"
+                >
+                  Remote
+                </span>
+                <span
+                  class="tag"
+                >
+                  £30,000
+                </span>
+                <span
+                  class="tag"
+                >
+                  Design
+                </span>
+                <span
+                  class="tag"
+                >
+                  6 months
+                </span>
+              </div>
+            </div>
+            <div
+              class="placement-actions"
+            >
+              <div
+                class="placement-status"
+              >
+                <span
+                  class="status waiting"
+                >
+                  Waiting
+                </span>
+              </div>
+              <button
+                class="remove-button"
+              >
+                - Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
