@@ -9,16 +9,13 @@ form.addEventListener('submit', (e) =>{
     let errors = []
 
     if(name_input){
-        // if there is a name input, then the user is using the sign up form
         errors = getSignupFormErrors(name_input.ariaValueMax, email_input.ariaValueMax, password_input.ariaValueMax, confirm_password_input.value)
     }
     else{
-        // if there is no name input, then the user is using the log in form
         errors = getLoginFormErrors(email_input.value, password_input.value)
     }
 
     if(errors.length > 0){
-        // if there are any errors
         e.preventDefault()
         error_message.innerText = errors.join(". ")
     }

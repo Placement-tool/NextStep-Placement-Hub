@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing Form</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Create a Job Listing</h2>
+        <form id="jobListingForm">
+            <div class="form-group">
+                <label for="jobTitle">Job Title</label><br>
+                <input type="text" id="jobTitle" name="jobTitle" required><br>
+                <span class="error-message" id="jobTitleError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="companyName">Company Name</label><br>
+                <input type="text" id="companyName" name="companyName" required><br>
+                <span class="error-message" id="companyNameError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="jobDescription">Job Description</label><br>
+                <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea><br>
+                <span class="error-message" id="jobDescriptionError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Job Location</label><br>
+                <input type="text" id="location" name="location" required><br>
+                <span class="error-message" id="locationError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary Range ($)</label><br>
+                <input type="text" id="salary" name="salary" placeholder="e.g. 50,000 - 70,000"><br>
+                <span class="error-message" id="salaryError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="deadline">Application Deadline:</label><br>
+                <input type="date" id="deadline" name="deadline" required><br>
+                <span class="error-message" id="deadlineError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Job Start Date:</label><br>
+                <input type="date" id="startDate" name="startDate" required><br>
+                <span class="error-message" id="startDateError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="jobType">Job Type:</label><br>
+                <select id="jobType" name="jobType" required>
+                    <option value="">Select job type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                </select><br>
+                <span class="error-message" id="jobTypeError"></span><br>
+            </div>
+
+            <div class="form-group">
+                <label for="workMode">Work Mode:</label><br>
+                <select id="workMode" name="workMode" required>
+                    <option value="">Select work mode</option>
+                    <option value="Remote">Remote</option>
+                    <option value="On-site">On-site</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select><br>
+                <span class="error-message" id="workModeError"></span><br>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Job Listing</button>
+        </form>
+        <button id="undoButton" style="display: none;">Undo Last Removal</button>
+    </div>
+    <div class="main-content" id="jobListingsContainer">  
+        <div class="placement-opportunity">
+            <div class="company-icon">🏢</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Software Engineer
+                    <span class="company-tag">Google</span>
+                    <span class="deadline-tag">Deadline: 31/12/2025</span>
+                </div>
+                <div class="placement-description">
+                    Join Google's engineering team to build scalable and innovative solutions...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 15/01/2026</span>
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Remote</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status open">Open</span>
+                </div>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+
+        <div class="placement-opportunity">
+            <div class="company-icon">🏭</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Data Analyst
+                    <span class="company-tag">Bloomberg</span>
+                    <span class="deadline-tag">Deadline: 15/11/2025</span>
+                </div>
+                <div class="placement-description">
+                    Work with Bloomberg's data team to analyze financial markets and trends...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 01/02/2026</span>
+                    <span class="tag">Part-time</span>
+                    <span class="tag">On-site</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status open">Open</span>
+                </div>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+
+        <div class="placement-opportunity">
+            <div class="company-icon">🏛️</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Marketing Manager
+                    <span class="company-tag">KPMG</span>
+                    <span class="deadline-tag">Deadline: 30/10/2025</span>
+                </div>
+                <div class="placement-description">
+                    Lead KPMG's marketing team to create impactful campaigns for global clients...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 01/01/2026</span>
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Hybrid</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status closed">Closed</span>
+                </div>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+
+        <div class="placement-opportunity">
+            <div class="company-icon">💻</div>
+            <div class="placement-info">
+                <div class="placement-title">
+                    Frontend Developer
+                    <span class="company-tag">Meta</span>
+                    <span class="deadline-tag">Deadline: 20/11/2025</span>
+                </div>
+                <div class="placement-description">
+                    Build responsive and user-friendly web applications for Meta's platforms...
+                </div>
+                <div class="placement-tags">
+                    <span class="start-date-tag">Start Date: 10/01/2026</span>
+                    <span class="tag">Contract</span>
+                    <span class="tag">Remote</span>
+                </div>
+            </div>
+            <div class="placement-actions">
+                <div class="placement-status">
+                    <span class="status open">Open</span>
+                </div>
+                <button class="remove-button">- Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

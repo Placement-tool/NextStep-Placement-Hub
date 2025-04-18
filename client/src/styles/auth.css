@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
 
-/* CHANGE ICONS TO CREAM COLOUR*/
-
 :root{
     --accent-color: #E76F51;
     --base-color: #FFF3B0;
@@ -9,12 +7,12 @@
     --input-color: #F4A261;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-html{
+html {
     font-family: Atkinson Hyperlegible Mono, Poppins; 
     font-size: 12pt;
     color: var(--text-color);
@@ -25,39 +23,30 @@ body {
     min-height: 100vh;
     background-image: url('../assets/background.jpg');
     background-size: cover;
-    background-position: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-position: right;
+    overflow: hidden;
 }
 
 .wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
     background-color: var(--base-color);
+    height: 100vh;
     width: max(40%, 600px);
-    padding: 20px;
-    border-radius: 20px;
+    padding: 10px;
+    border-radius: 0 20px 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
-    height: auto;
-    max-height: 90vh; 
+    justify-content: center;
 }
 
-h1{
+h1 {
     font-size: 3rem;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-form{
+form {
     width: min(400px, 100%);
     margin-top:20px;
     margin-bottom: 50px;
@@ -67,7 +56,7 @@ form{
     gap: 10px;
 }
 
-form > div{
+form > div {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -76,14 +65,12 @@ form > div{
 form label {
     flex-shrink: 0;
     height: 50px;
-    width: auto; 
-    background-color: transparent; 
+    width:50px;
+    background-color: var(--accent-color);
     border-radius: 10px 0 0 10px;
     display: flex;
-    justify-content: flex-start; 
+    justify-content: center;
     align-items: center;
-    padding-left: 10px; 
-    color: var(--text-color); 
 }
 
 form input {
@@ -95,28 +82,27 @@ form input {
     font: inherit;
     border-radius: 0 10px 10px 0;
     border: 2px solid var(--accent-color);
-    background-color: white;
     transition: 150ms ease;
 }
 
-form input:hover{
-border-color: var(--text-color);
+form input:hover {
+    border-color: var(--text-color);
 }
 
-form input:focus{
+form input:focus {
     outline: none;
     border-color: var(--text-color);
 }
 
-div:has(input:focus) > label{
+div:has(input:focus) > label {
     background-color: var(--text-color);
 }
 
-form input::placeholder{
+form input::placeholder {
     color: var(--text-color);
 }
 
-form button{
+form button {
     margin-top: 10px;
     border: none;
     border-radius: 1000px;
@@ -130,76 +116,36 @@ form button{
     transition: 150ms ease;
 }
 
-form button:hover{
+form button:hover {
     background-color: var(--text-color);
 }
 
-form button:focus{
+form button:focus {
     outline: none;
     background-color: var(--text-color);
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--accent-color);
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-@media(max-width: 1000px){
-    .wrapper{
+@media(max-width: 1000px) {
+    .wrapper {
         width: min(600px, 100%);
         border-radius: 0;
     }
 }
 
-form div.incorrect{
+form div.incorrect {
     background-color: #e44444;
     border-radius: 10px 10px 10px 10px;
 }
 
-#error-message{
-    color:#e44444;
-}
-
-.text-button {
-    background: none;
-    border: none;
-    color: var(--accent-color);
-    text-decoration: none;
-    cursor: pointer;
-    padding: 0;
-    font: inherit;
-    font-weight: 600;
-}
-
-.text-button:hover {
-    text-decoration: underline;
-    color: var(--text-color);
-}
-
-.success-message {
-    color: var(--success-color);
-    margin: 10px 0;
-    padding: 10px;
-    background-color: rgba(76, 175, 80, 0.1);
-    border-radius: 10px;
-    width: 90%;
-    font-weight: 600;
-}
-
-.error-message {
-    color: var(--error-color);
-    margin: 10px 0;
-    padding: 10px;
-    background-color: rgba(228, 68, 68, 0.1);
-    border-radius: 10px;
-    width: 90%;
-    font-weight: 600;
-}
-
 #error-message {
-    color: var(--error-color);
+    color: #e44444;
 }
